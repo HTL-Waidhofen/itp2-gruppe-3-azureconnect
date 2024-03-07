@@ -1,0 +1,16 @@
+.login{
+    text-align: center;
+    height: 100vh;
+    background-image: url(../../resources/images/login_background.jpg);
+    background-position: center;
+    background-size: cover;
+}
+h1{
+    text-align: center;
+    padding-top: 6%;
+}
+button{
+    margin-top: 20px;
+    text-align: center;
+    padding: 7px 75px 7px 75px;
+}
