@@ -8,6 +8,10 @@
 h1{
     text-align: center;
     padding-top: 6%;
+    background: linear-gradient(to right, #EEEEEE, #DDDDFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 button{
     margin-top: 20px;

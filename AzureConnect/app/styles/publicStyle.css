@@ -19,12 +19,12 @@ button{
     font-size: 25px;
     border-radius: 30px;
     border-style: none;
-    background-color: rgb(0, 0, 20, 0.3);
+    background-color: rgb(0, 0, 10, 0.3);
     transition: background-color 0.2s ease;
     color: #DDDDDD;
 }
 button:hover{
     cursor: pointer;
-    background-color: rgb(0, 0, 40, 0.5);
+    background-color: rgb(0, 0, 30, 0.5);
     transition: background-color 0.2s ease;
 }
