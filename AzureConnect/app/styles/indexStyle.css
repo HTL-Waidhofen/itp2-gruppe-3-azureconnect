@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: #EEEEEE;
+    display: flex;
+    justify-content: space-between;
+}
+.information{
+    background-color: #555555;
+    height: 600px;
+    display: flex;
+}
+.user{
+    background-color: #888888;
+    width: 200px;
+}
+.documents{
+    flex: 1;
+    background-color: #BBBBBB;
+}
+.documents .container0{
+    height: 8%;
+}
+.documents .container1{
+    height: 100%;
+}
+.documents .container2{
+    flex: 1;
+    height: 80%;
+    background-color: red;
+}
+.documents .container3{
+    height: 12%;
+    background-color: green;
+    
+}
