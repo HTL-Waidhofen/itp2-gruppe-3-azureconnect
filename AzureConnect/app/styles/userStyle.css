@@ -30,7 +30,7 @@ header{
 }
 .documents .container2{
     flex: 1;
-    height: 80%;
+    height: 70%;
     background-color: red;
 }
 .documents .container3{
