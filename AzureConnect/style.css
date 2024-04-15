@@ -61,6 +61,7 @@ header{
     display: flex;
 }
 header h1{
+    color: var(--foreground-color);
     align-self: center;
     flex: 1;
 }
