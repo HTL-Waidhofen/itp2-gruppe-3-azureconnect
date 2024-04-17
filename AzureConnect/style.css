@@ -50,6 +50,15 @@
     --small-text-size: 16px;
 }
 
+h2{
+    font-size: calc(var(--medium-text-size) * 1.2);
+    color: var(--foreground-color);
+}
+.text{
+    font-size: var(--medium-text-size);
+    color: var(--foreground-color);
+}
+
 header{
     position: fixed;
     top: 0;
@@ -133,7 +142,30 @@ a{
 
 .profile{
     background-color: blue;
+    display: flex;
+    justify-content: left;
 }
+.profile .user{
+    width: 40%;
+}
+.profile .customize{
+    width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .mails{
     background-color: green;
 }
