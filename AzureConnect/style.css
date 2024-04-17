@@ -102,3 +102,47 @@ a{
     background-color: var(--highlight-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+.logout{
+    color: #f00;
+    border: 2px solid #f00;
+}
+.logout:hover{
+    background-color: #f00;
+}
+
+.grid-container{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 200px 200px 200px 200px;
+    justify-content: center;
+    gap: 10px;
+
+    grid-template-areas: 
+    "profile profile"
+    "mails mails"
+    "calender appointments"
+    "calender documents";
+}
+
+.profile {grid-area: profile;}
+.mails {grid-area: mails;}
+.calender {grid-area: calender;}
+.appointments {grid-area: appointments;}
+.documents {grid-area: documents;}
+
+.profile{
+    background-color: blue;
+}
+.mails{
+    background-color: green;
+}
+.calender{
+    background-color: red;
+}
+.appointments{
+    background-color: orange;
+}
+.documents{
+    background-color: yellow;
+}
