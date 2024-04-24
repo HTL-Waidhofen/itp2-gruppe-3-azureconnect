@@ -20,10 +20,15 @@ router.get('/acquireToken', authProvider.acquireToken({
     redirectUri: REDIRECT_URI,
     successRedirect: '/users/profile'
 }));
-router.get('/acquireTokenEmail', authProvider.acquireToken({
-    scopes: ['email'],
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['User.default'],
     redirectUri: REDIRECT_URI,
     successRedirect: '/users/profile'
+}));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['email'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/emails'
 }));
 router.post('/redirect', authProvider.handleRedirect());
 
