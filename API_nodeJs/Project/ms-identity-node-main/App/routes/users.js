@@ -37,20 +37,24 @@ router.get('/profile',
         }
     }
 );
-
-
-    router.get('/emails',
+router.get('/emails', authProvider.acquireToken({
+    scopes: ['email'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/profile'
+}));
+/*router.get('/emails',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
         try {
-            const graphResponse = await fetch('https://graph.microsoft.com/v1.0/me/messages', req.session.accessToken);
-            res.render('emails', { messages: graphResponse });
+            const graphResponse = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
+            res.render('emails', { profile: graphResponse });
         } catch (error) {
             next(error);
         }
     }
 );
-/*const { getUserEmails } = require('./getUserEmails'); // adjust the path to where getUserEmails is defined
+*/
+//const { getUserEmails } = require('./getUserEmails'); // adjust the path to where getUserEmails is defined
 
 router.get('/emails', async function(req, res, next) {
   if (!req.session.isAuthenticated) {
@@ -64,5 +68,5 @@ router.get('/emails', async function(req, res, next) {
     }
   }
 });
-*/
+
 module.exports = router;

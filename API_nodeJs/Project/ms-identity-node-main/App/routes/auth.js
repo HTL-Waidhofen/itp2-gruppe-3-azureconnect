@@ -7,7 +7,6 @@ var express = require('express');
 
 const authProvider = require('../auth/AuthProvider');
 const { REDIRECT_URI, POST_LOGOUT_REDIRECT_URI } = require('../authConfig');
-
 const router = express.Router();
 
 router.get('/signin', authProvider.login({
@@ -21,7 +20,11 @@ router.get('/acquireToken', authProvider.acquireToken({
     redirectUri: REDIRECT_URI,
     successRedirect: '/users/profile'
 }));
-
+router.get('/acquireTokenEmail', authProvider.acquireToken({
+    scopes: ['email'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/profile'
+}));
 router.post('/redirect', authProvider.handleRedirect());
 
 router.get('/signout', authProvider.logout({
