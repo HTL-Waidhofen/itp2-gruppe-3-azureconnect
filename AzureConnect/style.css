@@ -127,7 +127,7 @@ a{
     margin-top: 60px;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 400px 300px 300px 300px;
+    grid-template-rows: 400px 400px 400px 400px;
     justify-content: center;
 
     grid-template-areas: 
@@ -151,11 +151,11 @@ a{
     border-radius: 20px;
 }
 .profile .user{
-    width: 40%;
+    width: 35%;
     padding: 2%;
 }
 .profile .customize{
-    width: 60%;
+    width: 65%;
     padding: 2%;
 }
 .profile .customize .color-schemes{
@@ -217,14 +217,47 @@ a{
 
 
 
-
-
-
-
-
 .mails{
-    background-color: green;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: left;
+    margin: 0 1% 1% 1%;
+    border-radius: 20px;
 }
+
+.mails .overview{
+    width: 40%;
+    padding: 2%;
+}
+.mails .mailtext{
+    width: 60%;
+    padding: 2%;
+    display: flex;
+}
+.mails .maillist{
+    border: 2px solid var(--highlight-color);
+    height: 230px;
+    margin: 3% 1% 1% 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .calender{
     background-color: red;
 }
