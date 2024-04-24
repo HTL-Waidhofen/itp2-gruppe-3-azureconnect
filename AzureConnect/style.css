@@ -42,12 +42,16 @@
 /*   ICONS: https://boxicons.com/   */
 
 :root{
-    --highlight-color: #00f;
+    --highlight-color: #ADB6C4;
     --foreground-color: #eee;
     --background-color: #333;
 
     --medium-text-size: 20px;
     --small-text-size: 16px;
+}
+
+body{
+    background-color: var(--foreground-color);
 }
 
 h2{
@@ -123,9 +127,8 @@ a{
     margin-top: 60px;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-rows: 400px 300px 300px 300px;
     justify-content: center;
-    gap: 10px;
 
     grid-template-areas: 
     "profile profile"
@@ -141,9 +144,11 @@ a{
 .documents {grid-area: documents;}
 
 .profile{
-    background-color: blue;
+    background-color: var(--background-color);
     display: flex;
     justify-content: left;
+    margin: 1%;
+    border-radius: 20px;
 }
 .profile .user{
     width: 40%;
@@ -155,8 +160,52 @@ a{
 }
 .profile .customize .color-schemes{
     width: 100%;
-    height: 30px;
-    background-color: red;
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.profile .customize .color{
+    height: 60px;
+    width: 60px;
+    margin: 1%;
+    border-radius: 10px;
+    border: 3px solid var(--foreground-color);
+    height: 60px;
+    width: 60px;
+    margin: 1% 1% 1% 0;
+    border-radius: 10px;
+    border: 3px solid var(--foreground-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+}
+.profile .customize .colors1{
+    background: linear-gradient(135deg, #222323 0%, #222323 50%, #f0f6f0 50%, #f0f6f0 100%);
+}
+.profile .customize .colors2{
+    background: linear-gradient(135deg, #f0f6f0 0%, #f0f6f0 50%, #222323 50%, #222323 100%);
+}
+.profile .customize .colors3{
+    background: linear-gradient(135deg, #ffeaf9 0%, #ffeaf9 50%, #004c3d 50%, #004c3d 100%);
+}
+.profile .customize .colors4{
+    background: linear-gradient(135deg, #d3c9a1 0%, #d3c9a1 50%, #323c39 50%, #323c39 100%);
+}
+.profile .customize .colors5{
+    background: linear-gradient(135deg, #edf4ff 0%, #edf4ff 50%, #c62b69 50%, #c62b69 100%);
+}
+
+.profile .customize .size1{
+    font-size: calc(var(--small-text-size) * 0.8);
+}
+.profile .customize .size2{
+    font-size: var(--small-text-size);
+}
+.profile .customize .size3{
+    font-size: calc(var(--small-text-size) * 1.2);
 }
 
 
