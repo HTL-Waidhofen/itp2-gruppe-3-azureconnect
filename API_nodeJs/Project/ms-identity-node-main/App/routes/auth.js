@@ -35,5 +35,4 @@ router.post('/redirect', authProvider.handleRedirect());
 router.get('/signout', authProvider.logout({
     postLogoutRedirectUri: POST_LOGOUT_REDIRECT_URI
 }));
-
 module.exports = router;

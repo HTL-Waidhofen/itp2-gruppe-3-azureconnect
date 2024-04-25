@@ -1,5 +1,14 @@
-<h1>{{title}}</h1>
-<h2>Your Emails:</h2>
-{{#each emails}}
-    <p>{{subject}}</p>
-{{/each}}
+<h1>Microsoft Graph API</h1>
+<h2>Your Emails</h2>
+<table>
+    <tbody>
+        {{#each emails.value}}
+        <tr>
+            <td>Title</td>
+            <td>{{this.subject}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>
+<a href="/">Go back</a>

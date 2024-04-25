@@ -26,8 +26,6 @@ router.get('/id',
     }
 );
 
-const { getUserEmails } = require('./getUserEmails'); 
-const { getUserEmails } = require('../graphService');
 router.get('/profile',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
@@ -39,36 +37,17 @@ router.get('/profile',
         }
     }
 );
-router.get('/emails', authProvider.acquireToken({
-    scopes: ['email'],
-    redirectUri: REDIRECT_URI,
-    successRedirect: '/users/profile'
-}));
 router.get('/emails',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
         try {
-            const graphResponse = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
-            res.render('emails', { profile: graphResponse });
+            const graphResponse = await fetch("https://graph.microsoft.com/v1.0/me/messages", req.session.accessToken);
+            res.render('emails', { emails: graphResponse });
         } catch (error) {
             next(error);
         }
     }
 );
 
-
-
-router.get('/emails', async function(req, res, next) {
-  if (!req.session.isAuthenticated) {
-    res.render('emails', { title: 'Emails', isAuthenticated: false });
-  } else {
-    try {
-      const emails = await getUserEmails(req.session.accessToken);
-      res.render('emails', { title: 'Emails', isAuthenticated: true, username: req.session.account.username, emails: emails });
-    } catch (err) {
-      next(err);
-    }
-  }
-});
 
 module.exports = router;
