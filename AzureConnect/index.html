@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Displays userinformation and lately used documents">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>AzureConnect</title>
+</head>
+<body>
+    <header>
+        <h1>AzureConnect</h1>
+        <nav>
+            <a class="menuitem">Profil</a>
+            <a class="menuitem">E-Mail</a>
+            <a class="menuitem">Kalender</a>
+            <a class="menuitem">Dokumente</a>
+            <a class="button logout">Abmelden</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <section class="grid-container">
+                <div class="profile">
+                    <div class="user">
+                        <h2>Profil</h2>
+                        <div class="text">[name]</div>
+                        <div class="text">[mail]</div>
+                        <div class="text">[class]</div>
+                    </div>
+                    <div class="customize">
+                        <h2>Personalisieren</h2>
+                        <div class="text">Farbschema auswählen</div>
+                        <div class="color-schemes">
+                            <div class="colors1 color">
+                                <div class="color1"></div>
+                                <div class="color2"></div>
+                            </div>
+                            <div class="colors2 color"></div>
+                            <div class="colors3 color"></div>
+                            <div class="colors4 color"></div>
+                            <div class="colors5 color"></div>
+                        </div>
+                        <div class="text">Schriftgröße wählen</div>
+                        <div class="color-schemes">
+                            <div class="size1 color">Klein</div>
+                            <div class="size2 color">Mittel</div>
+                            <div class="size3 color">Groß</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mails">
+                    <div class="overview">
+                        <h2>Mails</h2>
+                        <a class="button">Alle</a>
+                        <a class="button">Gesendet</a>
+                        <a class="button">Erhalten</a>
+                        <div class="maillist"></div>
+                    </div>
+                    <div class="mailtext">
+                        <div class="mailheader">
+                        </div>
+                        <div class="mailbody"></div>
+                    </div>
+                </div>
+                <div class="calender">
+                    <div class="datepicker">
+                        <div class="datepicker-top">
+                            <div class="month-selector">
+                                <button class="arrow"><i class='bx bx-chevron-left'></i></button>
+                                <span class="month-name">December 2020</span>
+                                <button class="arrow"><i class='bx bx-chevron-right'></i>
+                                </button>
+                                
+                            </div>
+                        </div>
+                        <div class="datepicker-calendar">
+                            <span class="day">Mo</span>
+                            <span class="day">Tu</span>
+                            <span class="day">We</span>
+                            <span class="day">Th</span>
+                            <span class="day">Fr</span>
+                            <span class="day">Sa</span>
+                            <span class="day">Su</span>
+                            <button class="date faded">30</button>
+                            <button class="date">1</button>
+                            <button class="date">2</button>
+                            <button class="date">3</button>
+                            <button class="date">4</button>
+                            <button class="date">5</button>
+                            <button class="date">6</button>
+                            <button class="date">7</button>
+                            <button class="date">8</button>
+                            <button class="date current-day">9</button>
+                            <button class="date">10</button>
+                            <button class="date">11</button>
+                            <button class="date">12</button>
+                            <button class="date">13</button>
+                            <button class="date">14</button>
+                            <button class="date">15</button>
+                            <button class="date">16</button>
+                            <button class="date">17</button>
+                            <button class="date">18</button>
+                            <button class="date">19</button>
+                            <button class="date">20</button>
+                            <button class="date">21</button>
+                            <button class="date">22</button>
+                            <button class="date">23</button>
+                            <button class="date">24</button>
+                            <button class="date">25</button>
+                            <button class="date">26</button>
+                            <button class="date">27</button>
+                            <button class="date">28</button>
+                            <button class="date">29</button>
+                            <button class="date">30</button>
+                            <button class="date">31</button>
+                            <button class="date faded">1</button>
+                            <button class="date faded">2</button>
+                            <button class="date faded">3</button>
+                        </div>
+                    </div>
+                    <a class="button btn-create-appointment">Termin erstellen</a>
+                </div>
+                <div class="appointments"></div>
+                <div class="documents">
+                    <div class="headline">
+                        <h2>zuletzt verwendete Dokumente</h2>
+                    </div>
+                    <div class="documentlist">
+
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <nav>
+
+        </nav>
+    </footer>
+    <script src="./script.js" defer></script>
+</body>
+</html>
