@@ -117,11 +117,11 @@ a{
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .logout{
-    color: #f00;
-    border: 2px solid #f00;
+    color: #a73939;
+    border: 2px solid #a73939;
 }
 .logout:hover{
-    background-color: #f00;
+    background-color: #a73939;
 }
 
 .grid-container{
@@ -224,7 +224,7 @@ a{
 
 
 .mails{
-    background-color: var(--background-color);
+    background: linear-gradient(225deg, var(--background-color) 0%, rgba(40,40,45) 100%);
     display: flex;
     justify-content: left;
     margin: 0 1% 1% 1%;
