@@ -249,7 +249,11 @@ a{
 
 
 .appointments{
-    background-color: orange;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: left;
+    margin: 0 1% 1% 1%;
+    border-radius: 20px;
 }
 
 
@@ -279,7 +283,9 @@ a{
 
 
 .calender{
-    background-color: red;
+    background-color: var(--background-color);
+    margin: 0 1% 1% 1%;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
