@@ -57,6 +57,14 @@ body{
 h2{
     font-size: calc(var(--medium-text-size) * 1.2);
     color: var(--foreground-color);
+    
+    text-shadow: 
+    0 0 2px rgba(255,255,255,0.1),
+    0 0 4px rgba(255,255,255,0.1),
+    0 0 6px rgba(255,255,255,0.1),
+    0 0 8px rgba(93, 76, 158, 0.1),
+    0 0 10px rgba(93, 76, 158, 0.1),
+    0 0 12px rgba(93, 76, 158, 0.1);
 }
 .text{
     font-size: var(--medium-text-size);
@@ -114,7 +122,16 @@ a{
 .button:hover{
     color: var(--foreground-color);
     background-color: var(--highlight-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+    
+    box-shadow: 
+    0 0 2px rgba(255,255,255,0.1),
+    0 0 4px rgba(255,255,255,0.1),
+    0 0 6px rgba(255,255,255,0.1),
+    0 0 8px rgba(93, 76, 158, 0.1),
+    0 0 10px rgba(93, 76, 158, 0.1),
+    0 0 12px rgba(93, 76, 158, 0.1);
 }
 .logout{
     color: #a73939;
@@ -297,8 +314,8 @@ a{
 }
 
 :root {
-	--c-theme-primary: #008FFD;
-	--c-theme-primary-accent: #CBE8FF;
+	--c-theme-primary: #5e4975;
+	--c-theme-primary-accent: #ab82d7;
 	--c-bg-primary: #D6DAE0;
 	--c-bg-secondary: #EAEBEC;
 	--c-bg-tertiary: #FDFDFD;
