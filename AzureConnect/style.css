@@ -57,7 +57,6 @@ body{
 h2{
     font-size: calc(var(--medium-text-size) * 1.2);
     color: var(--foreground-color);
-    
     text-shadow: 
     0 0 2px rgba(255,255,255,0.1),
     0 0 4px rgba(255,255,255,0.1),
@@ -204,7 +203,6 @@ a{
     border: 3px solid var(--highlight-color);
     transition: border 0.2s ease;
 }
-
 .profile .customize .colors1{
     background: linear-gradient(135deg, #222323 0%, #222323 50%, #f0f6f0 50%, #f0f6f0 100%);
 }
@@ -305,17 +303,16 @@ a{
 
 
 .calender{
-    background-color: var(--background-color);
-    margin: 0 1% 1% 1%;
-    border-radius: 20px;
+    background-color: red;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    padding: 6% 1% 0 1%;
 }
 
 :root {
-	--c-theme-primary: #5e4975;
-	--c-theme-primary-accent: #ab82d7;
+	--c-theme-primary: #008FFD;
+	--c-theme-primary-accent: #CBE8FF;
 	--c-bg-primary: #D6DAE0;
 	--c-bg-secondary: #EAEBEC;
 	--c-bg-tertiary: #FDFDFD;
@@ -332,8 +329,8 @@ button {
 }
 
 .datepicker {
-	width: 95%;
-	max-width: 350px;
+	width: 90%;
+    height: 70%;
 	background-color: var(--c-bg-tertiary);
 	border-radius: 10px;
 	box-shadow: 0 0 2px 0 rgba(#000, .2), 0 5px 10px 0 rgba(#000, .1);
@@ -354,12 +351,13 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 0;
+	border: 2px solid #000;
 	background-color:#FFF;
-	border-radius: 12px;
+	border-radius: 11px;
 	width: 2.5rem;
 	height: 2.5rem;
 	box-shadow: 0 0 2px 0 rgba(#000,.25), 0 0 10px 0 rgba(#000, .15);
+    font-size: 2rem;
 }
 
 .month-name {
@@ -378,16 +376,18 @@ button {
 
 .day {
 	color: var(--c-text-secondary);
-	font-size: .875em;
+	font-size: 1.2em;
 	font-weight: 500;
 	justify-self: center;
+    height: 65px;
+    line-height: 40px;
 }
 
 .date {
 	border: 0;
 	padding: 0;
-	width: 2.25rem;
-	height: 2.25rem;
+	width: 40px;
+	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -414,4 +414,11 @@ button {
 	&:focus {
 		background-color: var(--c-theme-primary-accent);
 	}
+}
+
+.btn-create-appointment {
+    display: flex;
+	align-items: center;
+	border: 2px solid #000;
+	border-radius: 11px;
 }
