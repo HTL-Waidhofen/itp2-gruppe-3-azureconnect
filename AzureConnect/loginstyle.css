@@ -38,60 +38,87 @@ article{
 }
 
 .bg-shape{
-    opacity: .5;
+    opacity: .7;
     filter: blur(90px);
 }
 
 .bg-shape1{
-    width: 400px;
-    height: 400px;
+    width: 40%;
+    height: 40%;
     border-radius: 100%;
     position: relative;
     animation: one 10s infinite;
-    background-color: red;
+    background-color: #EA526F;
 }
-
 .bg-shape2{
-    width: 300px;
-    height: 300px;
+    width: 30%;
+    height: 30%;
     border-radius: 100%;
     position: relative;
     animation: two 10s infinite;
-    background-color: blue;
+    background-color: #279AF1;
 }
-
 .bg-shape3{
-    width: 300px;
-    height: 300px;
+    width: 60%;
+    height: 60%;
     border-radius: 100%;
     position: relative;
     animation: three 10s infinite;
-    background-color: green;
+    background-color: #60AB9A;
+}
+.bg-shape4{
+    width: 10%;
+    height: 10%;
+    border-radius: 100%;
+    position: relative;
+    animation: four 10s infinite;
+    background-color: #E28413;
+}
+.bg-shape5{
+    width: 40%;
+    height: 40%;
+    border-radius: 100%;
+    position: relative;
+    animation: five 10s infinite;
+    background-color: #FCFF6C;
 }
 
 @keyframes one{
-    0%{left: 0px; top: 0px;}
-    25%{left: -100px; top: 70px;}
-    50%{left: 20px; top: 150px;}
-    75%{left: 50px; top: 100px;}
-    100%{left: 0px; top: 0px;}
+    0%{left: 0%; top: 0%;}
+    25%{left: -10%; top: 10%;}
+    50%{left: 2%; top: 20%;}
+    75%{left: 5%; top: 15%;}
+    100%{left: 0%; top: 0%;}
 }
-
 @keyframes two{
-    0%{left: 0px; top: 0px;}
-    25%{left: -100px; top: 70px;}
-    50%{left: 20px; top: 150px;}
-    75%{left: 50px; top: 100px;}
-    100%{left: 0px; top: 0px;}
+    0%{left: 0%; top: 0%;}
+    25%{left: -8%; top: 15%;}
+    50%{left: 4%; top: 18%;}
+    75%{left: -3%; top: 12%;}
+    100%{left: 0%; top: 0%;}
+}
+@keyframes three{
+    0%{left: 0%; top: 0%;}
+    25%{left: 6%; top: 5%;}
+    50%{left: -1%; top: 12%;}
+    75%{left: 9%; top: 17%;}
+    100%{left: 0%; top: 0%;}
+}
+@keyframes four{
+    0%{left: 0%; top: 0%;}
+    25%{left: -4%; top: 14%;}
+    50%{left: 7%; top: 2%;}
+    75%{left: 1%; top: 8%;}
+    100%{left: 0%; top: 0%;}
+}
+@keyframes five{
+    0%{left: 0%; top: 0%;}
+    25%{left: 3%; top: 7%;}
+    50%{left: -7%; top: 16%;}
+    75%{left: 8%; top: 1%;}
+    100%{left: 0%; top: 0%;}
 }
 
-@keyframes three{
-    0%{left: 0px; top: 0px;}
-    25%{left: -100px; top: 70px;}
-    50%{left: 20px; top: 150px;}
-    75%{left: 50px; top: 100px;}
-    100%{left: 0px; top: 0px;}
-}
 
 header{
     position: fixed;
@@ -109,4 +136,23 @@ header{
 header h1{
     color: var(--foreground-color);
     align-self: center;
+}
+
+button{
+    height: 70px;
+    width: 300px;
+    font-size: 40px;
+    padding: 10px;
+    align-self: center;
+    z-index: 10;
+    background: none;
+    border: none;
+    border-radius: 60px;
+    background-color: rgba(0,20,60,0.2);
+    color: white;
+}
+
+button:hover{
+    background-color: rgba(0,20,60,0.4);
+    transition: background-color 0.2s ease;
 }
