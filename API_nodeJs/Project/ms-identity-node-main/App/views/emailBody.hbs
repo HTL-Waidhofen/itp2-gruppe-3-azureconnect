@@ -1,0 +1,18 @@
+<h1>Email Body</h1>
+{{body}}
+<br>
+{{#if hasAttachments}}
+  <h2>Attachments</h2>
+  <ul>
+    {{#each attachments}}
+      <li><a href="/attachments/{{this.id}}">{{this.name}}</a></li>
+    {{/each}}
+  </ul>
+{{/if}}
+{{#if hasNextPage}}
+  <a href="/emails/{{nextPage}}">Next page</a>
+{{/if}}
+{{#if hasPrevPage}}
+  <a href="/emails/{{prevPage}}">Previous page</a>
+{{/if}}
+<a href="/emails">Go back to emails</a>

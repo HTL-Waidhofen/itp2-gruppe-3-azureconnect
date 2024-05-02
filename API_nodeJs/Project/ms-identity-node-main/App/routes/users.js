@@ -48,6 +48,40 @@ router.get('/emails',
         }
     }
 );
-
+router.get('/emails/:id',
+    isAuthenticated,
+    async function (req, res, next) {
+        try {
+            const emailId = req.params.id;
+            const graphResponse = await fetch(`https://graph.microsoft.com/v1.0/me/messages/${emailId}?$select=body`, req.session.accessToken);
+            res.render('emailBody', { body: graphResponse.body.content });
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+router.get('/calendars',
+    isAuthenticated, // check if user is authenticated
+    async function (req, res, next) {
+        try {
+            const graphResponse = await fetch("https://graph.microsoft.com/v1.0/me/calendars", req.session.accessToken);
+            res.render('calendars', { calendars: graphResponse });
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+router.get('/calendars/:id',
+    isAuthenticated,
+    async function (req, res, next) {
+        try {
+            const calendarId = req.params.id;
+            const graphResponse = await fetch(`https://graph.microsoft.com/v1.0/me/calendars/${calendarId}/events`, req.session.accessToken);
+            res.render('events', { events: graphResponse });
+        } catch (error) {
+            next(error);
+        }
+    }
+);
 
 module.exports = router;

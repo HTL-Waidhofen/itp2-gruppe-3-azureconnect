@@ -1,11 +1,11 @@
 <h1>Microsoft Graph API</h1>
-<h2>Your Emails</h2>
+<h2>Your Calendar</h2>
 <table>
     <tbody>
-        {{#each emails.value}}
+        {{#each calendar.value}}
         <tr>
             <td>Title</td>
-            <td><a href="/emails/{{this.id}}">{{this.subject}}</a></td>
+            <td><a href="/calendar/{{this.id}}">{{this.subject}}</a></td>
         </tr>
         {{/each}}
     </tbody>

@@ -30,6 +30,26 @@ router.get('/acquireToken', authProvider.acquireToken({
     redirectUri: REDIRECT_URI,
     successRedirect: '/users/emails'
 }));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['email.default'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/emails'
+}));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['email.read'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/emails'
+}));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['calendars.read'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/calendars'
+}));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['calendars.readwrite'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/calendars'
+}));
 router.post('/redirect', authProvider.handleRedirect());
 
 router.get('/signout', authProvider.logout({
