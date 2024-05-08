@@ -40,9 +40,9 @@ header h1{
 }
 
 button{
-    height: 60px;
-    width: 240px;
-    font-size: 30px;
+    height: 50px;
+    width: 200px;
+    font-size: 22px;
     padding: 10px;
     align-self: center;
     z-index: 10;
@@ -69,7 +69,7 @@ button:hover{
     height: auto;
     z-index: -1000;
     background-size: cover;
-    transition: 1s opacity;
+    filter: brightness(0.7);
 }
 #video-content {
     height: 100vh;
