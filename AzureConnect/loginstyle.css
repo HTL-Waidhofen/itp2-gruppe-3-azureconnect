@@ -139,9 +139,9 @@ header h1{
 }
 
 button{
-    height: 70px;
-    width: 300px;
-    font-size: 40px;
+    height: 60px;
+    width: 240px;
+    font-size: 30px;
     padding: 10px;
     align-self: center;
     z-index: 10;
