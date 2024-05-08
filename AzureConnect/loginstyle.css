@@ -7,6 +7,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    overflow: hidden;
 }
 
 /*   ICONS: https://boxicons.com/   */
@@ -19,106 +20,6 @@
     --medium-text-size: 20px;
     --small-text-size: 16px;
 }
-
-article{
-    justify-content: center;
-}
-
-.absolute{
-    position: absolute;
-    top: 50px !important;
-    inset: 0;
-    justify-content: center;
-    display: inline-flex;
-    flex-direction: row;
-}
-
-.bg-container{
-    justify-content: center;
-}
-
-.bg-shape{
-    opacity: .7;
-    filter: blur(90px);
-}
-
-.bg-shape1{
-    width: 40%;
-    height: 40%;
-    border-radius: 100%;
-    position: relative;
-    animation: one 10s infinite;
-    background-color: #EA526F;
-}
-.bg-shape2{
-    width: 30%;
-    height: 30%;
-    border-radius: 100%;
-    position: relative;
-    animation: two 10s infinite;
-    background-color: #279AF1;
-}
-.bg-shape3{
-    width: 60%;
-    height: 60%;
-    border-radius: 100%;
-    position: relative;
-    animation: three 10s infinite;
-    background-color: #60AB9A;
-}
-.bg-shape4{
-    width: 10%;
-    height: 10%;
-    border-radius: 100%;
-    position: relative;
-    animation: four 10s infinite;
-    background-color: #E28413;
-}
-.bg-shape5{
-    width: 40%;
-    height: 40%;
-    border-radius: 100%;
-    position: relative;
-    animation: five 10s infinite;
-    background-color: #FCFF6C;
-}
-
-@keyframes one{
-    0%{left: 0%; top: 0%;}
-    25%{left: -10%; top: 10%;}
-    50%{left: 2%; top: 20%;}
-    75%{left: 5%; top: 15%;}
-    100%{left: 0%; top: 0%;}
-}
-@keyframes two{
-    0%{left: 0%; top: 0%;}
-    25%{left: -8%; top: 15%;}
-    50%{left: 4%; top: 18%;}
-    75%{left: -3%; top: 12%;}
-    100%{left: 0%; top: 0%;}
-}
-@keyframes three{
-    0%{left: 0%; top: 0%;}
-    25%{left: 6%; top: 5%;}
-    50%{left: -1%; top: 12%;}
-    75%{left: 9%; top: 17%;}
-    100%{left: 0%; top: 0%;}
-}
-@keyframes four{
-    0%{left: 0%; top: 0%;}
-    25%{left: -4%; top: 14%;}
-    50%{left: 7%; top: 2%;}
-    75%{left: 1%; top: 8%;}
-    100%{left: 0%; top: 0%;}
-}
-@keyframes five{
-    0%{left: 0%; top: 0%;}
-    25%{left: 3%; top: 7%;}
-    50%{left: -7%; top: 16%;}
-    75%{left: 8%; top: 1%;}
-    100%{left: 0%; top: 0%;}
-}
-
 
 header{
     position: fixed;
@@ -148,11 +49,36 @@ button{
     background: none;
     border: none;
     border-radius: 60px;
-    background-color: rgba(0,20,60,0.2);
+    background-color: rgba(0,20,60,0.3);
     color: white;
+    backdrop-filter: blur(70px);
 }
 
 button:hover{
-    background-color: rgba(0,20,60,0.4);
+    background-color: rgba(0,20,60,0.8);
     transition: background-color 0.2s ease;
+}
+
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    background-size: cover;
+    transition: 1s opacity;
+}
+#video-content {
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
