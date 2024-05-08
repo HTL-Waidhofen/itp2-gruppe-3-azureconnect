@@ -66,6 +66,7 @@
                     </div>
                 </div>
                 <div class="calender">
+                    
                     <div class="datepicker">
                         <div class="datepicker-top">
                             <div class="month-selector">
@@ -122,23 +123,31 @@
                     </div>
                     <a class="button btn-create-appointment">Termin erstellen</a>
                 </div>
-                <div class="appointments"></div>
+                <div class="appointments">
+                    <h2 class="headline">Termine am ${day}.${month + 1}.${year}</h2>
+                    <!-- Container für die Border -->
+                    <div class="appointment-list">
+                        <!-- Hier werden die Termine angezeigt -->
+                    </div>
+                </div>
+                                
                 <div class="documents">
                     <div class="headline">
                         <h2>zuletzt verwendete Dokumente</h2>
                     </div>
                     <div class="documentlist">
-
                     </div>
                 </div>
             </section>
         </article>
     </main>
+
     <footer>
         <nav>
 
         </nav>
     </footer>
     <script src="./script.js" defer></script>
+    <script src="./script2.js"></script>
 </body>
 </html>
