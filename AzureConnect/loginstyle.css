@@ -52,10 +52,11 @@ button{
     background-color: rgba(0,20,60,0.3);
     color: white;
     backdrop-filter: blur(70px);
+    margin: 4%;
 }
 
 button:hover{
-    background-color: rgba(0,20,60,0.8);
+    background-color: rgba(0,20,60,0.6);
     transition: background-color 0.2s ease;
 }
 
@@ -81,4 +82,9 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.text{
+    display: inline;
+    font-size: 20px;
 }
