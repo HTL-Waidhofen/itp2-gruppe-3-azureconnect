@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const currentDate = new Date();
     let currentMonth = currentDate.getMonth();
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const startingDay = firstDayOfMonth.getDay();
     
         const calendarBody = document.querySelector('.datepicker-calendar');
-        calendarBody.innerHTML = '';
     
         const monthSelector = document.querySelector('.month-name');
         monthSelector.textContent = monthNames[month] + ' ' + year;
@@ -29,13 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
             dateButton.classList.add('date');
             dateButton.textContent = i;
             calendarBody.appendChild(dateButton);
-            if (i === currentDay && month === currentMonth && year === currentYear) {
-                dateButton.classList.add('current-day');
-                showAppointments(i, month, year);
+    
+            if (month === currentMonth && year === currentYear) {
+                dateButton.addEventListener('click', function () {
+                    showAppointments(i, month, year);
+                    // Entferne zuerst die Klasse 'selected-day' von allen Tagen
+                    const allDates = document.querySelectorAll('.date');
+                    allDates.forEach((date) => {
+                        date.classList.remove('selected-day');
+                    });
+                    // Füge die Klasse 'selected-day' nur zum angeklickten Tag hinzu
+                    dateButton.classList.add('selected-day');
+                });
+                if (i === currentDay) {
+                    dateButton.classList.add('current-day');
+                    showAppointments(i, month, year);
+                }
+            } else {
+                dateButton.classList.add('faded');
             }
-            dateButton.addEventListener('click', function () {
-                showAppointments(i, month, year);
-            });
         }
     }
     
@@ -50,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Hier können weitere Logik implementiert werden, um die Termine für den ausgewählten Tag anzuzeigen
     }
-    
     
     function changeMonth(direction) {
         if (direction === 'next') {
@@ -85,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     createAppointmentBtn.addEventListener('click', function () {
         createAppointment();
     });
-
+    
     function createAppointment() {
         const appointmentList = document.querySelector('.appointment-list');
         const newAppointment = document.createElement('div');
