@@ -14,7 +14,6 @@ router.get('/signin', authProvider.login({
     redirectUri: REDIRECT_URI,
     successRedirect: '/'
 }));
-
 router.get('/acquireToken', authProvider.acquireToken({
     scopes: ['User.Read'],
     redirectUri: REDIRECT_URI,
@@ -33,12 +32,22 @@ router.get('/acquireToken', authProvider.acquireToken({
 router.get('/acquireToken', authProvider.acquireToken({
     scopes: ['email.default'],
     redirectUri: REDIRECT_URI,
-    successRedirect: '/users/emails'
+    successRedirect: '/users/emails/'
 }));
 router.get('/acquireToken', authProvider.acquireToken({
     scopes: ['email.read'],
     redirectUri: REDIRECT_URI,
     successRedirect: '/users/emails'
+}));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['calendars'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/calendars'
+}));
+router.get('/acquireToken', authProvider.acquireToken({
+    scopes: ['calendars.default'],
+    redirectUri: REDIRECT_URI,
+    successRedirect: '/users/calendars'
 }));
 router.get('/acquireToken', authProvider.acquireToken({
     scopes: ['calendars.read'],
@@ -51,7 +60,6 @@ router.get('/acquireToken', authProvider.acquireToken({
     successRedirect: '/users/calendars'
 }));
 router.post('/redirect', authProvider.handleRedirect());
-
 router.get('/signout', authProvider.logout({
     postLogoutRedirectUri: POST_LOGOUT_REDIRECT_URI
 }));

@@ -53,24 +53,57 @@ router.get('/emails/:id',
     async function (req, res, next) {
         try {
             const emailId = req.params.id;
+            console.log("Requested Email ID:", emailId); // Konsolenausgabe zur Überprüfung der E-Mail-ID
+            
             const graphResponse = await fetch(`https://graph.microsoft.com/v1.0/me/messages/${emailId}?$select=body`, req.session.accessToken);
+            
+            if (!graphResponse || !graphResponse.body || !graphResponse.body.content) {
+                console.error("Error: Email body not found or empty");
+                throw new Error("Email body not found or empty");
+            }
+
             res.render('emailBody', { body: graphResponse.body.content });
         } catch (error) {
             next(error);
         }
     }
 );
+
 router.get('/calendars',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
         try {
-            const graphResponse = await fetch("https://graph.microsoft.com/v1.0/me/calendars", req.session.accessToken);
+            const graphResponse = await fetch('/me/events', req.session.accessToken)
+            .select('subject,body,bodyPreview,organizer,attendees,start,end,location')
+            .get();
+            
             res.render('calendars', { calendars: graphResponse });
         } catch (error) {
             next(error);
         }
     }
 );
+router.get('/emails/:id',
+    isAuthenticated,
+    async function (req, res, next) {
+        try {
+            const emailId = req.params.id;
+            console.log("Requested Email ID:", emailId); // Konsolenausgabe zur Überprüfung der E-Mail-ID
+
+            const graphResponse = await fetch(`https://graph.microsoft.com/v1.0/me/messages/${emailId}?$select=body`, req.session.accessToken);
+
+            if (!graphResponse || !graphResponse.body || !graphResponse.body.content) {
+                console.error("Error: Email body not found or empty");
+                throw new Error("Email body not found or empty");
+            }
+
+            res.render('emailBody', { body: graphResponse.body.content });
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+
 router.get('/calendars/:id',
     isAuthenticated,
     async function (req, res, next) {

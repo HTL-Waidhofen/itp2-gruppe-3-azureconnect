@@ -1,6 +1,9 @@
 <h1>Email Body</h1>
-{{body}}
-<br>
+{{#if body}}
+  {{{ body }}}
+{{else}}
+  <p>No email body found</p>
+{{/if}}
 {{#if hasAttachments}}
   <h2>Attachments</h2>
   <ul>
@@ -9,10 +12,13 @@
     {{/each}}
   </ul>
 {{/if}}
+
 {{#if hasNextPage}}
   <a href="/emails/{{nextPage}}">Next page</a>
 {{/if}}
+
 {{#if hasPrevPage}}
   <a href="/emails/{{prevPage}}">Previous page</a>
 {{/if}}
+
 <a href="/emails">Go back to emails</a>

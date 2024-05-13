@@ -1,14 +1,24 @@
 <h1>Microsoft Graph API</h1>
 <h2>Your Calendar</h2>
-<table>
+{{#if calendar}}
+  <table>
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Start</th>
+        <th>End</th>
+      </tr>
+    </thead>
     <tbody>
-        {{#each calendar.value}}
+      {{#each calendar}}
         <tr>
-            <td>Title</td>
-            <td><a href="/calendar/{{this.id}}">{{this.subject}}</a></td>
+          <td>{{subject}}</td>
+          <td>{{start.dateTime}}</td>
+          <td>{{end.dateTime}}</td>
         </tr>
-        {{/each}}
+      {{/each}}
     </tbody>
-</table>
-<br>
-<a href="/">Go back</a>
+  </table>
+{{else}}
+  <p>No events found.</p>
+{{/if}}
