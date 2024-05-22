@@ -1,6 +1,6 @@
 <h1>Microsoft Graph API</h1>
 <h2>Your Calendar</h2>
-{{#if calendar}}
+{{#if calendars}}
   <table>
     <thead>
       <tr>
@@ -10,11 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      {{#each calendar}}
+      {{#each calendars}}
         <tr>
-          <td>{{subject}}</td>
-          <td>{{start.dateTime}}</td>
-          <td>{{end.dateTime}}</td>
+          <td><a href="/users/calendars/{{this.id}}">{{this.subject}}</a></td>
+          <td>{{this.start.dateTime}}</td>
+          <td>{{this.end.dateTime}}</td>
         </tr>
       {{/each}}
     </tbody>
