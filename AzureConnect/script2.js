@@ -1,106 +1,55 @@
+const daysTag = document.querySelector(".days"),
+currentDate = document.querySelector(".current-date"),
+prevNextIcon = document.querySelectorAll(".icons span");
 
-document.addEventListener('DOMContentLoaded', function () {
-    const currentDate = new Date();
-    let currentMonth = currentDate.getMonth();
-    let currentYear = currentDate.getFullYear();
-    let currentDay = currentDate.getDate();
-    
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'];
-    
-    function renderCalendar(month, year) {
-        const firstDayOfMonth = new Date(year, month, 1);
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const startingDay = firstDayOfMonth.getDay();
-    
-        const calendarBody = document.querySelector('.datepicker-calendar');
-    
-        const monthSelector = document.querySelector('.month-name');
-        monthSelector.textContent = monthNames[month] + ' ' + year;
-    
-        for (let i = 0; i < startingDay; i++) {
-            const blankSpace = document.createElement('button');
-            blankSpace.classList.add('date', 'faded');
-            calendarBody.appendChild(blankSpace);
-        }
-    
-        for (let i = 1; i <= daysInMonth; i++) {
-            const dateButton = document.createElement('button');
-            dateButton.classList.add('date');
-            dateButton.textContent = i;
-            calendarBody.appendChild(dateButton);
-    
-            if (month === currentMonth && year === currentYear) {
-                dateButton.addEventListener('click', function () {
-                    showAppointments(i, month, year);
-                    // Entferne zuerst die Klasse 'selected-day' von allen Tagen
-                    const allDates = document.querySelectorAll('.date');
-                    allDates.forEach((date) => {
-                        date.classList.remove('selected-day');
-                    });
-                    // Füge die Klasse 'selected-day' nur zum angeklickten Tag hinzu
-                    dateButton.classList.add('selected-day');
-                });
-                if (i === currentDay) {
-                    dateButton.classList.add('current-day');
-                    showAppointments(i, month, year);
-                }
-            } else {
-                dateButton.classList.add('faded');
-            }
-        }
+// getting new date, current year and month
+let date = new Date(),
+currYear = date.getFullYear(),
+currMonth = date.getMonth();
+
+// storing full name of all months in array
+const months = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"];
+
+const renderCalendar = () => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+    let liTag = "";
+
+    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
     }
-    
-    function showAppointments(day, month, year) {
-        const appointmentsContainer = document.querySelector('.appointments');
-        appointmentsContainer.innerHTML = `<h2 class="headline">Termine am ${day}.${month + 1}.${year}</h2>`;
-        
-        // Hinzufügen eines Containers für die Termine
-        const appointmentList = document.createElement('div');
-        appointmentList.classList.add('appointment-list');
-        appointmentsContainer.appendChild(appointmentList);
-    
-        // Hier können weitere Logik implementiert werden, um die Termine für den ausgewählten Tag anzuzeigen
+
+    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+        // adding active class to li if the current day, month, and year matched
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
+                     && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
     }
-    
-    function changeMonth(direction) {
-        if (direction === 'next') {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
+
+    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+    }
+    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+    daysTag.innerHTML = liTag;
+}
+renderCalendar();
+
+prevNextIcon.forEach(icon => { // getting prev and next icons
+    icon.addEventListener("click", () => { // adding click event on both icons
+        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
+            // creating a new date of current year & month and pass it as date value
+            date = new Date(currYear, currMonth, new Date().getDate());
+            currYear = date.getFullYear(); // updating current year with new date year
+            currMonth = date.getMonth(); // updating current month with new date month
         } else {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
+            date = new Date(); // pass the current date as date value
         }
-        renderCalendar(currentMonth, currentYear);
-    }
-    
-    renderCalendar(currentMonth, currentYear);
-    
-    const prevMonthBtn = document.querySelector('.month-selector .arrow:first-child');
-    prevMonthBtn.addEventListener('click', function () {
-        changeMonth('prev');
+        renderCalendar(); // calling renderCalendar function
     });
-    
-    const nextMonthBtn = document.querySelector('.month-selector .arrow:last-child');
-    nextMonthBtn.addEventListener('click', function () {
-        changeMonth('next');
-    });
-    
-    const createAppointmentBtn = document.querySelector('.btn-create-appointment');
-    createAppointmentBtn.addEventListener('click', function () {
-        createAppointment();
-    });
-    
-    function createAppointment() {
-        const appointmentList = document.querySelector('.appointment-list');
-        const newAppointment = document.createElement('div');
-        newAppointment.textContent = 'Neuer Termin';
-        appointmentList.appendChild(newAppointment);
-    }
 });
