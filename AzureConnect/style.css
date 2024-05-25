@@ -286,7 +286,6 @@ a{
     justify-content: left;
     margin: 1% 1% 1% 1%;
     border-radius: 20px;
-    display: flex;
     flex-direction: column;
 }
 .headline{
@@ -303,11 +302,13 @@ a{
 
 
 .calender{
-    background-color: red;
-    display: flex;
+    background-color: var(--background-color);
     justify-content: center;
+    align-items: center;
+    margin: 0% 1% 1% 2%;
+    border-radius: 20px;
+    display: flex;
     flex-direction: column;
-    padding: 6% 1% 0 1%;
 }
 
 :root {
