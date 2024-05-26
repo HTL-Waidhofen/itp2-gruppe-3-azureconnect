@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+    <p>Hi {{profile.displayName}}!</p>
+    <h2>Profile Information</h2>
+    <ul>
+        <li>Name: {{profile.displayName}}</li>
+        <li>Email: {{profile.mail}}</li>
+        <!-- Add more profile fields as needed -->
+    </ul>
+
+    <h2>Emails</h2>
+    <ul>
+        {{#each emails.value}}
+        <li>{{subject}} - {{from.emailAddress.name}}</li>
+        {{/each}}
+    </ul>

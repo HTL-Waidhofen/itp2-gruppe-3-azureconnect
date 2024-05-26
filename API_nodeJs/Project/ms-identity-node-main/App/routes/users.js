@@ -82,4 +82,29 @@ router.get('/calendars',
     }
 );
 
+
+//--------------------DASHBOARD--------------------
+router.get('/dashboard',
+    isAuthenticated, // check if user is authenticated
+    async function (req, res, next) {
+        try {
+            // Fetch profile and emails concurrently
+            const [profileResponse, emailsResponse] = await Promise.all([
+                fetch(`https://graph.microsoft.com/v1.0/me/`, req.session.accessToken),
+                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken)
+            ]);
+
+            const profile = await profileResponse;
+            const emails = await emailsResponse;
+
+            res.render('dashboard', { profile, emails });
+        } catch (error) {
+            next(error);
+        }
+    }
+);
+
+
+
+
 module.exports = router;
