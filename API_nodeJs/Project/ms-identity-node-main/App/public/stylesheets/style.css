@@ -1,3 +1,34 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--text-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--highlight-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64726e;
+}
+
+@-moz-document url-prefix() {
+  html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--highlight-color) var(--text-color);
+  }
+}
+
+::selection {
+  background-color: transparent;
+}
+
+::-moz-selection {
+  background-color: transparent;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -18,6 +49,10 @@
 
   --medium-text-size: 20px;
   --small-text-size: 16px;
+}
+
+body{
+  background-color: var(--foreground-color);
 }
 
 header{
@@ -52,7 +87,7 @@ a{
   background-color: rgba(0,20,60,0.3);
   color: white;
   backdrop-filter: blur(70px);
-  margin-top: 2%;
+  margin-top: 4%;
   position: relative;
 }
 
