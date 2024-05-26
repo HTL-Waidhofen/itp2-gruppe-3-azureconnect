@@ -97,14 +97,15 @@ router.get('/dashboard',
             const profile = await profileResponse;
             const emails = await emailsResponse;
 
-            res.render('dashboard', { profile, emails });
+            res.render('dashboard', { 
+                profile,
+                emails,
+                title: 'AzureConnect Dashboard'
+            });
         } catch (error) {
             next(error);
         }
     }
 );
-
-
-
 
 module.exports = router;
