@@ -1,0 +1,17 @@
+<h1>Email Body</h1>
+{{#if body}}
+  {{{ body }}}
+{{else}}
+  <p>No email body found</p>
+{{/if}}
+{{#if hasAttachments}}
+  <h2>Attachments</h2>
+  <ul>
+    {{#each attachments}}
+      <li><a href="/emails/{{this.id}}">{{this.name}}</a></li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+
+<a href="/emails">Go back to emails</a>

@@ -1,0 +1,14 @@
+<h1>Microsoft Graph API</h1>
+<h2>Your Emails</h2>
+<table>
+    <tbody>
+        {{#each emails.value}}
+        <tr>
+            <td>Title</td>
+            <td><a href="/users/emails/{{this.id}}">{{this.subject}}</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br>
+<a href="/">Go back</a>
