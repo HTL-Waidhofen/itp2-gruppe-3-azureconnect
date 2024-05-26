@@ -13,12 +13,12 @@ const router = express.Router();
 router.get('/signin', authProvider.login({
     scopes: ['User.Read', 'Mail.Read', 'Calendars.ReadWrite'],
     redirectUri: REDIRECT_URI,
-    successRedirect: '/'
+    successRedirect: '/auth/acquireToken'
 }));
 router.get('/acquireToken', authProvider.acquireToken({
     scopes: [],
     redirectUri: REDIRECT_URI,
-    successRedirect: '/users/'
+    successRedirect: '/users/dashboard'
 }));
 
 router.post('/redirect', authProvider.handleRedirect());
