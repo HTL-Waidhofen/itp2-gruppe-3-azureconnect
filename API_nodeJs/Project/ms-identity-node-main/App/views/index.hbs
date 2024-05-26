@@ -1,20 +1,23 @@
-<h1>{{title}}</h1>
-{{#if isAuthenticated }}
-<p>Hi {{username}}!</p>
-<a href="/users/id">View ID token claims</a>
-<br>
-<a href="/auth/acquireToken">Acquire a token to call the Microsoft Graph API</a>
-<br>
-<a href="/users/emails">email</a>
-<br>
-<a href="/users/profile">profile</a>
-<br>
-<a href="/users/dashboard">dashboard</a>
-<br>
-<a href="/users/calendars">termine</a>
-<br>
-<a href="/auth/signout">Sign out</a>
-{{else}}
-<p>Welcome to {{title}}</p>
-<a href="/auth/signin">Sign in</a>
-{{/if}}
+    <header>
+        <h1>AzureConnect</h1>
+        <nav>
+        </nav>
+    </header>
+    <main>
+        <video autoplay muted loop class="video-background">
+            <source src="/resources/loginbg.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        
+        <div class="video-content">
+            <div class="login-div">
+                <div class="text">Jetzt anmelden und loslegen!</div>
+                <a href="/auth/signin">Login</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <nav>
+
+        </nav>
+    </footer>

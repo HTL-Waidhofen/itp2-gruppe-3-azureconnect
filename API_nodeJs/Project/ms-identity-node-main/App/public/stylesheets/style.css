@@ -1,8 +1,96 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  overflow: hidden;
 }
 
-a {
-  color: #00B7FF;
+/*   ICONS: https://boxicons.com/   */
+
+:root{
+  --highlight-color: #5e4975;
+  --foreground-color: #eee;
+  --background-color: #333;
+
+  --medium-text-size: 20px;
+  --small-text-size: 16px;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+header h1{
+  color: var(--foreground-color);
+  align-self: center;
+}
+
+a{
+  display: block;
+  height: 50px;
+  width: 200px;
+  font-size: 22px;
+  padding: 10px;
+  align-self: center;
+  z-index: 10;
+  background: none;
+  border: none;
+  border-radius: 60px;
+  background-color: rgba(0,20,60,0.3);
+  color: white;
+  backdrop-filter: blur(70px);
+  margin-top: 2%;
+  position: relative;
+}
+
+a:hover{
+  background-color: rgba(0,20,60,0.6);
+  transition: background-color 0.2s ease;
+}
+
+.video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  background-size: cover;
+  filter: brightness(0.7);
+}
+.video-content {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text{
+  font-size: 20px;
+}
+
+.login-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
