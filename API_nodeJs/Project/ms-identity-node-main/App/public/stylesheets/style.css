@@ -342,8 +342,41 @@ a{
 }
 .mails .maillist{
   border: 2px solid var(--highlight-color);
-  height: 230px;
+  height: 280px;
   margin: 3% 1% 1% 0;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+.mails .maillist > div{
+  margin: 0 0 1% 0;
+  font-size: var(--small-text-size);
+  color: var(--foreground-color);
+  padding: 2%;
+  background-color: var(--background-color);
+}
+.mails .maillist > div:hover{
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.maillist::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+
+.maillist::-webkit-scrollbar-track {
+  background: var(--text-color);
+  border-radius: 20px;
+}
+
+.maillist::-webkit-scrollbar-thumb {
+  background: var(--highlight-color);
+  border-radius: 20px;
+}
+
+.maillist::-webkit-scrollbar-thumb:hover {
+  background: #64726e;
+  border-radius: 20px;
 }
 
 

@@ -42,9 +42,11 @@
                 <div class="mails">
                     <div class="overview">
                         <h2>Mails</h2>
+                        {{!// 
                         <a class="button">Alle</a>
                         <a class="button">Gesendet</a>
                         <a class="button">Erhalten</a>
+                        }}
                         <div class="maillist">
                             {{#each emails.value}}
                             <div>{{subject}} - {{from.emailAddress.name}}</div>
