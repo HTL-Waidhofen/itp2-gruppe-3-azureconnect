@@ -116,12 +116,17 @@
                 </div>
                 <div class="appointments"></div>
                 <div class="documents">
-                    <div class="headline">
-                        <h2>zuletzt verwendete Dokumente</h2>
+                <div class="headline">
+                    <h2>zuletzt verwendete Dokumente</h2>
+                </div>
+                <div class="documentlist">
+                    {{#each documents.value}}
+                    <div class="document">
+                    <i class='bx bxs-file-pdf'></i>
+                    <li>{{name}}</li>
                     </div>
-                    <div class="documentlist">
-
-                    </div>
+                    {{/each}}
+                </div>
                 </div>
             </section>
         </article>

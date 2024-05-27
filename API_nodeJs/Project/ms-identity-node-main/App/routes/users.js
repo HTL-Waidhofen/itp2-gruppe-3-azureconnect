@@ -89,17 +89,22 @@ router.get('/dashboard',
     async function (req, res, next) {
         try {
             // Fetch profile and emails concurrently
-            const [profileResponse, emailsResponse] = await Promise.all([
+            const [profileResponse, emailsResponse ,documentResponse] = await Promise.all([
                 fetch(`https://graph.microsoft.com/v1.0/me/`, req.session.accessToken),
-                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken)
+                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken),
+                fetch(`https://graph.microsoft.com/v1.0/me/drive/recent`, req.session.accessToken)
             ]);
 
             const profile = await profileResponse;
             const emails = await emailsResponse;
+            const documents = await documentResponse;
+
+            console.log("Documents:", documents);
 
             res.render('dashboard', { 
                 profile,
                 emails,
+                documents,
                 title: 'AzureConnect Dashboard'
             });
         } catch (error) {

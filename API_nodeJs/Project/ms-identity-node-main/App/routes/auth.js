@@ -11,7 +11,7 @@ const router = express.Router();
 
 
 router.get('/signin', authProvider.login({
-    scopes: ['User.Read', 'Mail.Read', 'Calendars.ReadWrite'],
+    scopes: ['User.Read', 'Mail.Read', 'Calendars.ReadWrite', 'Files.Read' ,'Files.Read.All'],
     redirectUri: REDIRECT_URI,
     successRedirect: '/auth/acquireToken'
 }));
