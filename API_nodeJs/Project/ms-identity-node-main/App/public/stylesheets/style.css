@@ -42,9 +42,9 @@
 /*   ICONS: https://boxicons.com/   */
 
 :root{
-  --highlight-color: #5e4975;
+  --highlight-color: #493b81;
   --foreground-color: #eee;
-  --background-color: #333;
+  --background-color: #223;
 
   --medium-text-size: 20px;
   --small-text-size: 16px;
@@ -161,7 +161,7 @@ header{
   left: 0;
   height: 60px;
   width: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,15,0.85);
   backdrop-filter: blur(5px);
 
   display: flex;
