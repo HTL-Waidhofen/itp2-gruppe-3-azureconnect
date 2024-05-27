@@ -67,14 +67,12 @@
                 </div>
                 <div class="calender">
                     <div class="datepicker">
-                        <header>
+                        <div class="datepicker-header">
+                            <button class="arrow" id="prev"><i class='bx bx-chevron-left'></i></button>
                             <p class="current-date"></p>
-                                <div class="icons">
-                                <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                                <span id="next" class="material-symbols-rounded">chevron_right</span>
-                                </div>
-                        </header>
-                        <div class="datepicker-calendar">
+                                <button class="arrow" id="next"><i class='bx bx-chevron-right'></i></button>
+                            </div>
+                        <div class="calendar-month">
                             <ul class="weeks">
                               <li>Sun</li>
                               <li>Mon</li>
@@ -85,8 +83,7 @@
                               <li>Sat</li>
                             </ul>
                             <ul class="days"></ul>
-                        </div>
-                            
+                        </div>     
                     </div>
                     <a class="button btn-create-appointment">Termin erstellen</a>
                 </div>
@@ -107,6 +104,6 @@
 
         </nav>
     </footer>
-    <script src="./script2.js" defer></script>
+    <script src="./script.js" defer></script>
 </body>
 </html>

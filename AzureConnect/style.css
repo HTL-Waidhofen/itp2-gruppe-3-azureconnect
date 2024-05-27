@@ -309,7 +309,15 @@ a{
 
 
 
-
+:root {
+	--c-theme-primary: #008FFD;
+	--c-theme-primary-accent: #CBE8FF;
+	--c-bg-primary: #D6DAE0;
+	--c-bg-secondary: #EAEBEC;
+	--c-bg-tertiary: #FDFDFD;
+	--c-text-primary: #1F1F25;
+	--c-text-secondary: #999FA6;
+}
 
 .calender{
     background-color: var(--background-color);
@@ -321,22 +329,14 @@ a{
     flex-direction: column;
 }
 
-:root {
-	--c-theme-primary: #008FFD;
-	--c-theme-primary-accent: #CBE8FF;
-	--c-bg-primary: #D6DAE0;
-	--c-bg-secondary: #EAEBEC;
-	--c-bg-tertiary: #FDFDFD;
-	--c-text-primary: #1F1F25;
-	--c-text-secondary: #999FA6;
-}
+
 
 button {
-	font: inherit;
-	cursor: pointer;
-	&:focus {
-		outline: 0;
-	}
+    font: inherit;
+    cursor: pointer;
+    &:focus {
+        outline: 0;
+    }
 }
 
 .datepicker {
@@ -348,108 +348,88 @@ button {
 	padding: 1rem;
 }
 
-.datepicker header {
+.datepicker .datepicker-header {
 	display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-header .icons{
+.datepicker .datepicker-header header .icons{
     display: flex;
-
 }
 
-header .icons span{
+.datepicker .datepicker-header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons button:last-child{
+  margin-right: -10px;
+}
+.datepicker .datepicker-header .icons button:hover{
+  background: #f2f2f2;
+}
+.datepicker .datepicker-header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendar-month{
+    padding: 20px;
+  }
+  .calendar-month ul{
     display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid #000;
-	background-color:#FFF;
-	border-radius: 11px;
-	width: 2.5rem;
-	height: 2.5rem;
-	box-shadow: 0 0 2px 0 rgba(#000,.25), 0 0 10px 0 rgba(#000, .15);
-    font-size: 2rem;
-}
-
-.icons span:last-child{
-    margin-right: -10px;
-}
-header .icons span:hover{
-    background: #f2f2f2;
-}
-header .current-date{
-    font-size: 1.45rem;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+  }
+  .calendar-month .days{
+    margin-bottom: 20px;
+  }
+  .calendar-month li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+  }
+  .calendar-month .weeks li{
     font-weight: 500;
+    cursor: default;
+  }
+  .calendar-month .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+  }
+.days li.inactive{
+  color: #aaa;
 }
-/*
-.arrow {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid #000;
-	background-color:#FFF;
-	border-radius: 11px;
-	width: 2.5rem;
-	height: 2.5rem;
-	box-shadow: 0 0 2px 0 rgba(#000,.25), 0 0 10px 0 rgba(#000, .15);
-    font-size: 2rem;
+.days li.active{
+  color: #fff;
 }
-*/
-
-.datepicker-calendar {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	grid-row-gap: 1rem;
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
-
-.day, .date {
-	justify-self: center;
+.days li.active::before{
+  background: #9B59B6;
 }
-
-.day {
-	color: var(--c-text-secondary);
-	font-size: 1.2em;
-	font-weight: 500;
-	justify-self: center;
-    height: 65px;
-    line-height: 40px;
-}
-
-.date {
-	border: 0;
-	padding: 0;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 6px;
-	font-weight: 600;
-	border: 2px solid transparent;
-	background-color: transparent;
-	cursor: pointer;
-	&:focus {
-		outline: 0;
-		color: var(--c-theme-primary);
-		border: 2px solid var(--c-theme-primary-accent);	
-	}	
-}
-
-.faded {
-	color: var(--c-text-secondary);
-}
-
-header .current-date {
-	font-size: 1.45rem;
-    font-weight: 500;
-    color: #FFF;
-	border-color: var(--c-theme-primary);
-	background-color: var(--c-theme-primary);
-	&:focus {
-		background-color: var(--c-theme-primary-accent);
-	}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
 }
 
 .btn-create-appointment {

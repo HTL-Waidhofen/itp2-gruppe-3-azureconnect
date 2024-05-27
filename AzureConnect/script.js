@@ -1,6 +1,6 @@
 const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
-prevNextIcon = document.querySelectorAll(".icons span");
+prevNextIcon = document.querySelectorAll(".arrow");
 
 // getting new date, current year and month
 let date = new Date(),
@@ -26,7 +26,7 @@ const renderCalendar = () => {
         // adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
+        liTag += `<li onclick="getDateInformation(id)" id="${i}" class="${isToday}">${i}</li>`;
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
@@ -34,7 +34,9 @@ const renderCalendar = () => {
     }
     currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
     daysTag.innerHTML = liTag;
+
 }
+
 renderCalendar();
 
 prevNextIcon.forEach(icon => { // getting prev and next icons
@@ -53,3 +55,7 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+function getDateInformation(id){
+    console.log(id);
+}
