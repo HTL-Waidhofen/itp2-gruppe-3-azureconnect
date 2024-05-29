@@ -1,17 +1,17 @@
     <header>
         <h1>AzureConnect</h1>
         <nav>
-            <a class="menuitem">Profil</a>
-            <a class="menuitem">E-Mail</a>
-            <a class="menuitem">Kalender</a>
-            <a class="menuitem">Dokumente</a>
+            <a class="menuitem" href="#profile-section">Profil</a>
+            <a class="menuitem" href="#mail-section">E-Mail</a>
+            <a class="menuitem" href="#calendar-section">Kalender</a>
+            <a class="menuitem" href="#documents-section">Dokumente</a>
             <a class="button logout" href="/auth/signout">Abmelden</a>
         </nav>
     </header>
     <main>
         <article>
             <section class="grid-container">
-                <div class="profile">
+                <div class="profile" id="profile-section">
                     <div class="user">
                         <h2>Profil</h2>
                         <div class="text">{{profile.displayName}}</div>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mails">
+                <div class="mails" id="mail-section">
                     <div class="overview">
                         <h2>Mails</h2>
                         {{!// 
@@ -59,7 +59,7 @@
                         <div class="mailbody"></div>
                     </div>
                 </div>
-                <div class="calender">
+                <div class="calender" id="calendar-section">
                     <div class="datepicker">
                         <div class="datepicker-top">
                             <div class="month-selector">
@@ -117,7 +117,7 @@
                     <a class="button btn-create-appointment">Termin erstellen</a>
                 </div>
                 <div class="appointments"></div>
-                <div class="documents">
+                <div class="documents" id="documents-section">
                     <div class="headline">
                         <h2>zuletzt verwendete Dokumente</h2>
                     </div>
