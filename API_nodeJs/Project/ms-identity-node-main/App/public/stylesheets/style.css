@@ -285,19 +285,19 @@ a{
   transition: border 0.2s ease;
 }
 .profile .customize .colors1{
-  background: linear-gradient(135deg, #222323 0%, #222323 50%, #f0f6f0 50%, #f0f6f0 100%);
+  background: linear-gradient(135deg, #223 0%, #223 50%, #eee 50%, #eee 100%);
 }
 .profile .customize .colors2{
-  background: linear-gradient(135deg, #f0f6f0 0%, #f0f6f0 50%, #222323 50%, #222323 100%);
+  background: linear-gradient(135deg, #eee 0%, #eee 50%, #223 50%, #223 100%);
 }
 .profile .customize .colors3{
-  background: linear-gradient(135deg, #ffeaf9 0%, #ffeaf9 50%, #004c3d 50%, #004c3d 100%);
+  background: linear-gradient(135deg, #232 0%, #232 50%, #efe 50%, #efe 100%);
 }
 .profile .customize .colors4{
-  background: linear-gradient(135deg, #d3c9a1 0%, #d3c9a1 50%, #323c39 50%, #323c39 100%);
+  background: linear-gradient(135deg, #efe 0%, #efe 50%, #232 50%, #232 100%);
 }
 .profile .customize .colors5{
-  background: linear-gradient(135deg, #edf4ff 0%, #edf4ff 50%, #c62b69 50%, #c62b69 100%);
+  background: linear-gradient(135deg, #422 0%, #422 50%, #f99 50%, #f99 100%);
 }
 
 .profile .customize .size1{

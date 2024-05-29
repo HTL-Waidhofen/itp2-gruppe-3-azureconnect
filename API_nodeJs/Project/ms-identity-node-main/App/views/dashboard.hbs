@@ -16,26 +16,23 @@
                         <h2>Profil</h2>
                         <div class="text">{{profile.displayName}}</div>
                         <div class="text">{{profile.mail}}</div>
-                        <div class="text">{{profile.jobTitle}}</div>
+                        <div class="text" style="text-transform: uppercase;">{{profile.jobTitle}}</div>
                     </div>
                     <div class="customize">
                         <h2>Personalisieren</h2>
                         <div class="text">Farbschema auswählen</div>
                         <div class="color-schemes">
-                            <div class="colors1 color">
-                                <div class="color1"></div>
-                                <div class="color2"></div>
-                            </div>
-                            <div class="colors2 color"></div>
-                            <div class="colors3 color"></div>
-                            <div class="colors4 color"></div>
-                            <div class="colors5 color"></div>
+                            <div class="colors1 color" onclick="changeColor(1)"></div>
+                            <div class="colors2 color" onclick="changeColor(2)"></div>
+                            <div class="colors3 color" onclick="changeColor(3)"></div>
+                            <div class="colors4 color" onclick="changeColor(4)"></div>
+                            <div class="colors5 color" onclick="changeColor(5)"></div>
                         </div>
                         <div class="text">Schriftgröße wählen</div>
                         <div class="color-schemes">
-                            <div class="size1 color">S</div>
-                            <div class="size2 color">M</div>
-                            <div class="size3 color">L</div>
+                            <div class="size1 color" onclick="changeFontsize('s')">S</div>
+                            <div class="size2 color" onclick="changeFontsize('m')">M</div>
+                            <div class="size3 color" onclick="changeFontsize('l')">L</div>
                         </div>
                     </div>
                 </div>
