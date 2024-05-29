@@ -57,5 +57,16 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 });
 
 function getDateInformation(id){
-    console.log(id);
+    var date = new Date();
+    date.setFullYear(document.getElementById("current-date").innerText.split(" ")[1]);
+    let month = document.getElementById("current-date").innerText.split(" ")[0];
+    for(var i = 1; i <= months.length; i++){
+        if(month == months[i]){
+            date.setMonth(i);
+            break;
+        }
+    }
+    date.setDate(id);
+    console.log(date);
+    return date;
 }
