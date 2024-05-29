@@ -13,13 +13,19 @@
             <section class="grid-container">
                 <div class="profile" id="profile-section">
                     <div class="user">
-                        <h2>Profil</h2>
+                        <div class="headline-container">
+                            <i class='bx bxs-user'></i>
+                            <h2>Profil</h2>
+                        </div>
                         <div class="text">{{profile.displayName}}</div>
                         <div class="text">{{profile.mail}}</div>
                         <div class="text" style="text-transform: uppercase;">{{profile.jobTitle}}</div>
                     </div>
                     <div class="customize">
-                        <h2>Personalisieren</h2>
+                        <div class="headline-container">
+                            <i class='bx bxs-palette'></i>
+                            <h2>Personalisieren</h2>
+                        </div>
                         <div class="text">Farbschema auswählen</div>
                         <div class="color-schemes">
                             <div class="colors1 color" onclick="changeColor(1)"></div>
@@ -30,15 +36,18 @@
                         </div>
                         <div class="text">Schriftgröße wählen</div>
                         <div class="color-schemes">
-                            <div class="size1 color" onclick="changeFontsize('s')">S</div>
-                            <div class="size2 color" onclick="changeFontsize('m')">M</div>
-                            <div class="size3 color" onclick="changeFontsize('l')">L</div>
+                            <div class="size1 color" onclick="changeFontsize('s')"><i class='bx bx-font-size'></i></div>
+                            <div class="size2 color" onclick="changeFontsize('m')"><i class='bx bx-font-size'></i></div>
+                            <div class="size3 color" onclick="changeFontsize('l')"><i class='bx bx-font-size'></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="mails" id="mail-section">
                     <div class="overview">
-                        <h2>Mails</h2>
+                        <div class="headline-container">
+                            <i class='bx bxs-envelope'></i>
+                            <h2>Mails</h2>
+                        </div>
                         {{!// 
                         <a class="button">Alle</a>
                         <a class="button">Gesendet</a>
@@ -115,7 +124,8 @@
                 </div>
                 <div class="appointments"></div>
                 <div class="documents" id="documents-section">
-                    <div class="headline">
+                    <div class="headline headline-container">
+                        <i class='bx bxs-file-blank'></i>
                         <h2>zuletzt verwendete Dokumente</h2>
                     </div>
                     <div class="documentlist">

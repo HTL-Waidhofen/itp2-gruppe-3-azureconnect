@@ -300,14 +300,14 @@ a{
   background: linear-gradient(135deg, #422 0%, #422 50%, #f99 50%, #f99 100%);
 }
 
-.profile .customize .size1{
-  font-size: calc(var(--small-text-size) * 0.8);
+.profile .customize .size1 i{
+  font-size: 14px;
 }
-.profile .customize .size2{
-  font-size: var(--small-text-size);
+.profile .customize .size2 i{
+  font-size: 20px;
 }
-.profile .customize .size3{
-  font-size: calc(var(--small-text-size) * 1.2);
+.profile .customize .size3 i{
+  font-size: 26px;
 }
 
 
@@ -534,4 +534,15 @@ background-color: var(--c-theme-primary);
 .btn-create-appointment {
   margin-top: 2%;
   width: 150px;
+}
+
+.headline-container{
+  display: flex;
+  align-items: center;
+}
+
+i{
+  color: var(--foreground-color);
+  font-size: var(--medium-text-size);
+  margin-right: 1%;
 }
