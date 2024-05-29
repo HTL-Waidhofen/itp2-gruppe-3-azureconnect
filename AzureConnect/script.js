@@ -7,6 +7,8 @@ let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
+document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear();
+
 // storing full name of all months in array
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];
@@ -67,5 +69,5 @@ function getDateInformation(id){
     }
     date.setDate(id);
     console.log(date);
-    document.getElementById("header_selDate").innerHTML = "Termin am " + date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
+    document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
 }
