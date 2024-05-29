@@ -532,8 +532,6 @@ background-color: var(--c-theme-primary);
 }
 
 .btn-create-appointment {
-  display: flex;
-align-items: center;
-border: 2px solid #000;
-border-radius: 11px;
+  margin-top: 2%;
+  width: 150px;
 }
