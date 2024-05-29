@@ -57,7 +57,6 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 });
 
 function getDateInformation(id){
-    var date = new Date();
     date.setFullYear(document.getElementById("current-date").innerText.split(" ")[1]);
     let month = document.getElementById("current-date").innerText.split(" ")[0];
     for(var i = 1; i <= months.length; i++){
@@ -68,5 +67,5 @@ function getDateInformation(id){
     }
     date.setDate(id);
     console.log(date);
-    return date;
+    document.getElementById("header_selDate").innerHTML = "Termin am " + date.getDate() + "." + date.getMonth() + "." + date.getFullYear();
 }

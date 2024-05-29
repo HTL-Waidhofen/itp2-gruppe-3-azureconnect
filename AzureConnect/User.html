@@ -69,9 +69,9 @@
                     <div class="datepicker">
                         <div class="datepicker-header">
                             <button class="arrow" id="prev"><i class='bx bx-chevron-left'></i></button>
-                            <p class="current-date"></p>
-                                <button class="arrow" id="next"><i class='bx bx-chevron-right'></i></button>
-                            </div>
+                            <p class="current-date" id="current-date"></p>
+                            <button class="arrow"><i class='bx bx-chevron-right'></i></button>
+                        </div>
                         <div class="calendar-month">
                             <ul class="weeks">
                               <li>Sun</li>
@@ -88,7 +88,7 @@
                     <a class="button btn-create-appointment">Termin erstellen</a>
                 </div>
                 <div class="appointments">
-                    <h2>Termin am {date}</h2>
+                    <h2 id="header_selDate"></h2>
                     <div class="appointmentslist"></div>
                 </div>
                 </div>
