@@ -271,14 +271,22 @@ a{
 .appointments{
     background-color: var(--background-color);
     display: flex;
-    justify-content: left;
+    flex-direction: column;
+    align-items: center;
     margin: 0 1% 1% 1%;
     border-radius: 20px;
+    padding: 4%;
+}
+.appointments h2{
+    text-align: left;
+    width: 100%;
 }
 
-
-
-
+.appointments .appointmentslist{
+    border: 2px solid var(--highlight-color);
+    height: 90%;
+    width: 100%;
+}
 
 .documents{
     background-color: var(--background-color);
@@ -287,14 +295,19 @@ a{
     margin: 1% 1% 1% 1%;
     border-radius: 20px;
     flex-direction: column;
+    align-items: center;
+    margin: 0% 1% 1% 1%;
+    border-radius: 20px;
+    padding: 4%;
 }
-.headline{
-    padding: 2%;
-}
-.documentlist{
-    height: 100%;
+.documents h2{
+    text-align: left;
+    width: 100%;}
+
+.documents .documentlist{
+    border: 2px solid var(--highlight-color);
+    height: 90%;
     width: 100%;
-    padding: 2%;
 }
 
 
@@ -321,12 +334,24 @@ a{
 	--c-text-secondary: #999FA6;
 }
 
+.calender{
+    background-color: var(--background-color);
+    justify-content: center;
+    align-items: center;
+    margin: 0% 1% 1% 2%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 button {
-	font: inherit;
-	cursor: pointer;
-	&:focus {
-		outline: 0;
-	}
+    font: inherit;
+    cursor: pointer;
+    &:focus {
+        outline: 0;
+    }
 }
 
 .datepicker {
@@ -338,83 +363,88 @@ button {
 	padding: 1rem;
 }
 
-.datepicker-top {
-	margin-bottom: 1rem;
-}
-
-.month-selector {
+.datepicker .datepicker-header {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
-.arrow {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid #000;
-	background-color:#FFF;
-	border-radius: 11px;
-	width: 2.5rem;
-	height: 2.5rem;
-	box-shadow: 0 0 2px 0 rgba(#000,.25), 0 0 10px 0 rgba(#000, .15);
-    font-size: 2rem;
+.datepicker .datepicker-header header .icons{
+    display: flex;
 }
 
-.month-name {
-	font-weight: 600;
+.datepicker .datepicker-header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
 }
-
-.datepicker-calendar {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	grid-row-gap: 1rem;
+.icons button:last-child{
+  margin-right: -10px;
 }
-
-.day, .date {
-	justify-self: center;
+.datepicker .datepicker-header .icons button:hover{
+  background: #f2f2f2;
 }
-
-.day {
-	color: var(--c-text-secondary);
-	font-size: 1.2em;
-	font-weight: 500;
-	justify-self: center;
-    height: 65px;
-    line-height: 40px;
+.datepicker .datepicker-header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
 }
-
-.date {
-	border: 0;
-	padding: 0;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 6px;
-	font-weight: 600;
-	border: 2px solid transparent;
-	background-color: transparent;
-	cursor: pointer;
-	&:focus {
-		outline: 0;
-		color: var(--c-theme-primary);
-		border: 2px solid var(--c-theme-primary-accent);	
-	}	
+.calendar-month{
+    padding: 20px;
+  }
+  .calendar-month ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+  }
+  .calendar-month .days{
+    margin-bottom: 20px;
+  }
+  .calendar-month li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+  }
+  .calendar-month .weeks li{
+    font-weight: 500;
+    cursor: default;
+  }
+  .calendar-month .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px;
+  }
+.days li.inactive{
+  color: #aaa;
 }
-
-.faded {
-	color: var(--c-text-secondary);
+.days li.active{
+  color: #fff;
 }
-
-.current-day {
-	color: #FFF;
-	border-color: var(--c-theme-primary);
-	background-color: var(--c-theme-primary);
-	&:focus {
-		background-color: var(--c-theme-primary-accent);
-	}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #9B59B6;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
 }
 
 .btn-create-appointment {
