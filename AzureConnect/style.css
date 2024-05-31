@@ -288,6 +288,7 @@ a{
     width: 100%;
 }
 
+
 .documents{
     background-color: var(--background-color);
     display: flex;
@@ -343,8 +344,6 @@ a{
     display: flex;
     flex-direction: column;
 }
-
-
 
 button {
     font: inherit;

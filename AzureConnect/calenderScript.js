@@ -71,3 +71,76 @@ function getDateInformation(id){
     console.log(date);
     document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
 }
+const createAppointmentButton = document.querySelector('.btn-create-appointment');
+
+const appointmentsList = document.querySelector('.appointmentslist');
+
+let formExists = false; 
+
+function addAppointment() {
+    if (!formExists) {
+        formExists = true;
+        const form = document.createElement('form');
+
+        const newAppointment = document.createElement('input');
+        newAppointment.type = 'text';
+
+        const confirmButton = document.createElement('button');
+        confirmButton.textContent = 'Bestätigen';
+
+        form.appendChild(newAppointment);
+        form.appendChild(confirmButton);
+
+        appointmentsList.appendChild(form);
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const appointmentText = newAppointment.value;
+
+            appointmentsList.removeChild(form);
+            formExists = false;
+
+            const appointmentDiv = document.createElement('div');
+            appointmentDiv.textContent = appointmentText;
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Bearbeiten';
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Löschen';
+
+            deleteButton.addEventListener('click', function() {
+                appointmentsList.removeChild(appointmentDiv);
+            });
+
+            editButton.addEventListener('click', function() {
+                const editInput = document.createElement('input');
+                editInput.type = 'text';
+                editInput.value = appointmentText;
+
+                appointmentDiv.textContent = '';
+                appointmentDiv.appendChild(editInput);
+
+                const confirmEditButton = document.createElement('button');
+                confirmEditButton.textContent = 'Bestätigen';
+
+                appointmentDiv.appendChild(confirmEditButton);
+
+                confirmEditButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    appointmentDiv.textContent = editInput.value;
+                    appointmentDiv.appendChild(editButton);
+                    appointmentDiv.appendChild(deleteButton);
+                });
+            });
+
+            appointmentDiv.appendChild(editButton);
+            appointmentDiv.appendChild(deleteButton);
+
+            appointmentsList.appendChild(appointmentDiv);
+        });
+    }
+}
+
+createAppointmentButton.addEventListener('click', addAppointment);
