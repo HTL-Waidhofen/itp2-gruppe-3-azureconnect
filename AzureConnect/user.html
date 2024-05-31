@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Displays userinformation and lately used documents">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./style.css">
+    <title>AzureConnect</title>
+</head>
+<body>
+    <header>
+        <h1>AzureConnect</h1>
+        <nav>
+            <a class="menuitem">Profil</a>
+            <a class="menuitem">E-Mail</a>
+            <a class="menuitem">Kalender</a>
+            <a class="menuitem">Dokumente</a>
+            <a class="button logout">Abmelden</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <section class="grid-container">
+                <div class="profile">
+                    <div class="user">
+                        <h2>Profil</h2>
+                        <div class="text">[name]</div>
+                        <div class="text">[mail]</div>
+                        <div class="text">[class]</div>
+                    </div>
+                    <div class="customize">
+                        <h2>Personalisieren</h2>
+                        <div class="text">Farbschema auswählen</div>
+                        <div class="color-schemes">
+                            <div class="colors1 color">
+                                <div class="color1"></div>
+                                <div class="color2"></div>
+                            </div>
+                            <div class="colors2 color"></div>
+                            <div class="colors3 color"></div>
+                            <div class="colors4 color"></div>
+                            <div class="colors5 color"></div>
+                        </div>
+                        <div class="text">Schriftgröße wählen</div>
+                        <div class="color-schemes">
+                            <div class="size1 color">S</div>
+                            <div class="size2 color">M</div>
+                            <div class="size3 color">L</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mails">
+                    <div class="overview">
+                        <h2>Mails</h2>
+                        <a class="button">Alle</a>
+                        <a class="button">Gesendet</a>
+                        <a class="button">Erhalten</a>
+                        <div class="maillist"></div>
+                    </div>
+                    <div class="mailtext">
+                        <div class="mailheader">
+                        </div>
+                        <div class="mailbody"></div>
+                    </div>
+                </div>
+                <div class="calender">
+                    <div class="datepicker">
+                        <div class="datepicker-header">
+                            <button class="arrow" id="prev"><i class='bx bx-chevron-left'></i></button>
+                            <p class="current-date" id="current-date"></p>
+                            <button class="arrow"><i class='bx bx-chevron-right'></i></button>
+                        </div>
+                        <div class="calendar-month">
+                            <ul class="weeks">
+                              <li>Sun</li>
+                              <li>Mon</li>
+                              <li>Tue</li>
+                              <li>Wed</li>
+                              <li>Thu</li>
+                              <li>Fri</li>
+                              <li>Sat</li>
+                            </ul>
+                            <ul class="days"></ul>
+                        </div>     
+                    </div>
+                    <a class="button btn-create-appointment">Termin erstellen</a>
+                </div>
+                <div class="appointments">
+                    <h2 id="header_selDate"></h2>
+                    <div class="appointmentslist"></div>
+                </div>
+                </div>
+                <div class="documents">
+                        <h2>zuletzt verwendete Dokumente</h2>
+                        <div class="documentlist"></div>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer>
+        <nav>
+
+        </nav>
+    </footer>
+    <script src="./script.js" defer></script>
+</body>
+</html>
