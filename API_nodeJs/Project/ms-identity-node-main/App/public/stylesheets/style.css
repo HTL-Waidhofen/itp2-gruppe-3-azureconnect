@@ -206,12 +206,8 @@ a{
 
   
   box-shadow: 
-  0 0 2px rgba(255,255,255,0.1),
-  0 0 4px rgba(255,255,255,0.1),
-  0 0 6px rgba(255,255,255,0.1),
-  0 0 8px rgba(93, 76, 158, 0.1),
-  0 0 10px rgba(93, 76, 158, 0.1),
-  0 0 12px rgba(93, 76, 158, 0.1);
+  0 0 2px var(--highlight-color),
+  0 0 4px var(--highlight-color);
 }
 .logout{
   color: #a73939;
@@ -219,6 +215,9 @@ a{
 }
 .logout:hover{
   background-color: #a73939;
+  box-shadow: 
+  0 0 2px #a73939,
+  0 0 4px #a73939;
 }
 
 .grid-container{

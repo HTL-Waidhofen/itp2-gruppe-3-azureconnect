@@ -122,7 +122,31 @@
                     </div>
                     <a class="button btn-create-appointment">Termin erstellen</a>
                 </div>
-                <div class="appointments"></div>
+                <div class="appointments">
+                    {{#if calendar}}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Start</th>
+                            <th>End</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each calendar.value}}
+                            <tr>
+                            <th>Kalendereintrag</th>
+                            <td><a href="{{this.webLink}}">{{this.bodyPreview}}</a></td>
+                            <td>{{this.start.dateTime}}</td>
+                            <td>{{this.end.dateTime}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                    {{else}}
+                    <p>No events found.</p>
+                    {{/if}}
+                </div>
                 <div class="documents" id="documents-section">
                     <div class="headline headline-container">
                         <i class='bx bxs-file-blank'></i>

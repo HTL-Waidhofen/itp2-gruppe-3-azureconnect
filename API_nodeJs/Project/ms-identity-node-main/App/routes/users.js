@@ -19,6 +19,7 @@ function isAuthenticated(req, res, next) {
     next();
 };
 
+/*
 router.get('/id',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
@@ -81,25 +82,27 @@ router.get('/calendars',
         }
     }
 );
-
+*/
 
 //--------------------DASHBOARD--------------------
 router.get('/dashboard',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
         try {
-            // Fetch profile and emails concurrently
-            const [profileResponse, emailsResponse] = await Promise.all([
+            const [profileResponse, emailsResponse, calendarResponse] = await Promise.all([
                 fetch(`https://graph.microsoft.com/v1.0/me/`, req.session.accessToken),
-                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken)
+                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken),
+                fetch(`https://graph.microsoft.com/v1.0/me/events?`, req.session.accessToken),
             ]);
 
             const profile = await profileResponse;
             const emails = await emailsResponse;
+            const calendar = await calendarResponse;
 
             res.render('dashboard', { 
                 profile,
                 emails,
+                calendar,
                 title: 'AzureConnect Dashboard'
             });
         } catch (error) {
