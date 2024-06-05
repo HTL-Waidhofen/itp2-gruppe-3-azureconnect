@@ -142,5 +142,4 @@ function addAppointment() {
         });
     }
 }
-
 createAppointmentButton.addEventListener('click', addAppointment);
