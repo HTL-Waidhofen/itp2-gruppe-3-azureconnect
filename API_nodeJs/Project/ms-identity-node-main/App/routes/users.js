@@ -92,7 +92,7 @@ router.get('/dashboard',
             const [profileResponse, emailsResponse, calendarResponse] = await Promise.all([
                 fetch(`https://graph.microsoft.com/v1.0/me/`, req.session.accessToken),
                 fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken),
-                fetch(`https://graph.microsoft.com/v1.0/me/events?`, req.session.accessToken),
+                fetch(`https://graph.microsoft.com/v1.0/me/events`, req.session.accessToken),
             ]);
 
             const profile = await profileResponse;

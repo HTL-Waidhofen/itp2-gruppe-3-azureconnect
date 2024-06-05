@@ -7,8 +7,8 @@ function changeColor(id){
         root.style.setProperty('--highlight-color', '#493b81');
     }
     else if(id == 2){
-        root.style.setProperty('--foreground-color', '#efe');
-        root.style.setProperty('--background-color', '#232');
+        root.style.setProperty('--foreground-color', '#223');
+        root.style.setProperty('--background-color', '#eee');
         root.style.setProperty('--highlight-color', '#493b81');
     }
     else if(id == 3){
