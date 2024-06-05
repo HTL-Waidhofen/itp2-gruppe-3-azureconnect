@@ -18,6 +18,7 @@
   html {
       scrollbar-width: thin;
       scrollbar-color: var(--highlight-color) var(--text-color);
+      overflow-y: auto;
   }
 }
 
@@ -42,9 +43,9 @@
 /*   ICONS: https://boxicons.com/   */
 
 :root{
-  --highlight-color: #5e4975;
+  --highlight-color: #493b81;
   --foreground-color: #eee;
-  --background-color: #333;
+  --background-color: #223;
 
   --medium-text-size: 20px;
   --small-text-size: 16px;
@@ -144,11 +145,7 @@ h2{
   color: var(--foreground-color);
   text-shadow: 
   0 0 2px rgba(255,255,255,0.1),
-  0 0 4px rgba(255,255,255,0.1),
-  0 0 6px rgba(255,255,255,0.1),
-  0 0 8px rgba(93, 76, 158, 0.1),
-  0 0 10px rgba(93, 76, 158, 0.1),
-  0 0 12px rgba(93, 76, 158, 0.1);
+  0 0 4px rgba(255,255,255,0.1);
 }
 .text{
   font-size: var(--medium-text-size);
@@ -161,7 +158,7 @@ header{
   left: 0;
   height: 60px;
   width: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,15,0.85);
   backdrop-filter: blur(5px);
 
   display: flex;
@@ -210,12 +207,8 @@ a{
 
   
   box-shadow: 
-  0 0 2px rgba(255,255,255,0.1),
-  0 0 4px rgba(255,255,255,0.1),
-  0 0 6px rgba(255,255,255,0.1),
-  0 0 8px rgba(93, 76, 158, 0.1),
-  0 0 10px rgba(93, 76, 158, 0.1),
-  0 0 12px rgba(93, 76, 158, 0.1);
+  0 0 2px var(--highlight-color),
+  0 0 4px var(--highlight-color);
 }
 .logout{
   color: #a73939;
@@ -223,6 +216,9 @@ a{
 }
 .logout:hover{
   background-color: #a73939;
+  box-shadow: 
+  0 0 2px #a73939,
+  0 0 4px #a73939;
 }
 
 .grid-container{
@@ -289,29 +285,29 @@ a{
   transition: border 0.2s ease;
 }
 .profile .customize .colors1{
-  background: linear-gradient(135deg, #222323 0%, #222323 50%, #f0f6f0 50%, #f0f6f0 100%);
+  background: linear-gradient(135deg, #223 0%, #223 50%, #eee 50%, #eee 100%);
 }
 .profile .customize .colors2{
-  background: linear-gradient(135deg, #f0f6f0 0%, #f0f6f0 50%, #222323 50%, #222323 100%);
+  background: linear-gradient(135deg, #eee 0%, #eee 50%, #223 50%, #223 100%);
 }
 .profile .customize .colors3{
-  background: linear-gradient(135deg, #ffeaf9 0%, #ffeaf9 50%, #004c3d 50%, #004c3d 100%);
+  background: linear-gradient(135deg, #232 0%, #232 50%, #efe 50%, #efe 100%);
 }
 .profile .customize .colors4{
-  background: linear-gradient(135deg, #d3c9a1 0%, #d3c9a1 50%, #323c39 50%, #323c39 100%);
+  background: linear-gradient(135deg, #efe 0%, #efe 50%, #232 50%, #232 100%);
 }
 .profile .customize .colors5{
-  background: linear-gradient(135deg, #edf4ff 0%, #edf4ff 50%, #c62b69 50%, #c62b69 100%);
+  background: linear-gradient(135deg, #422 0%, #422 50%, #f99 50%, #f99 100%);
 }
 
-.profile .customize .size1{
-  font-size: calc(var(--small-text-size) * 0.8);
+.profile .customize .size1 i{
+  font-size: 14px;
 }
-.profile .customize .size2{
-  font-size: var(--small-text-size);
+.profile .customize .size2 i{
+  font-size: 20px;
 }
-.profile .customize .size3{
-  font-size: calc(var(--small-text-size) * 1.2);
+.profile .customize .size3 i{
+  font-size: 26px;
 }
 
 
@@ -342,8 +338,41 @@ a{
 }
 .mails .maillist{
   border: 2px solid var(--highlight-color);
-  height: 230px;
+  height: 280px;
   margin: 3% 1% 1% 0;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+.mails .maillist > div{
+  margin: 0 0 1% 0;
+  font-size: var(--small-text-size);
+  color: var(--foreground-color);
+  padding: 2%;
+  background-color: var(--background-color);
+}
+.mails .maillist > div:hover{
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.maillist::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+
+.maillist::-webkit-scrollbar-track {
+  background: var(--text-color);
+  border-radius: 20px;
+}
+
+.maillist::-webkit-scrollbar-thumb {
+  background: var(--highlight-color);
+  border-radius: 20px;
+}
+
+.maillist::-webkit-scrollbar-thumb:hover {
+  background: #64726e;
+  border-radius: 20px;
 }
 
 
@@ -372,6 +401,7 @@ a{
   margin: 1% 1% 1% 1%;
   border-radius: 20px;
   flex-direction: column;
+  overflow-y: auto;
 }
 .headline{
   padding: 2%;
@@ -380,6 +410,7 @@ a{
   height: 100%;
   width: 100%;
   padding: 2%;
+  overflow-y: auto;
 }
 
 
@@ -503,8 +534,17 @@ background-color: var(--c-theme-primary);
 }
 
 .btn-create-appointment {
+  margin-top: 2%;
+  width: 180px;
+}
+
+.headline-container{
   display: flex;
-align-items: center;
-border: 2px solid #000;
-border-radius: 11px;
+  align-items: center;
+}
+
+i{
+  color: var(--foreground-color);
+  font-size: var(--medium-text-size);
+  margin-right: 1%;
 }
