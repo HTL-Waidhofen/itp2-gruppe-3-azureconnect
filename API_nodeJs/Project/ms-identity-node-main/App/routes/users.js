@@ -48,26 +48,6 @@ router.get('/emails',
         }
     }
 );
-router.get('/emails/:id',
-    isAuthenticated,
-    async function (req, res, next) {
-        try {
-            const emailId = req.params.id;
-            console.log("Requested Email ID:", emailId); // Konsolenausgabe zur Überprüfung der E-Mail-ID
-            
-            const graphResponse = await fetch(`https://graph.microsoft.com/v1.0/me/messages/${emailId}?$select=body`, req.session.accessToken);
-            
-            if (!graphResponse || !graphResponse.body || !graphResponse.body.content) {
-                console.error("Error: Email body not found or empty");
-                throw new Error("Email body not found or empty");
-            }
-
-            res.render('emailBody', { body: graphResponse.body.content });
-        } catch (error) {
-            next(error);
-        }
-    }
-);
 
 router.get('/calendars',
     isAuthenticated, // check if user is authenticated
@@ -88,11 +68,10 @@ router.get('/dashboard',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
         try {
-            // Fetch profile and emails concurrently
             const [profileResponse, emailsResponse] = await Promise.all([
                 fetch(`https://graph.microsoft.com/v1.0/me/`, req.session.accessToken),
-                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken)
-            ]);
+                fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken),
+                ]);
 
             const profile = await profileResponse;
             const emails = await emailsResponse;
@@ -107,5 +86,6 @@ router.get('/dashboard',
         }
     }
 );
+
 
 module.exports = router;
