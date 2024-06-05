@@ -1,50 +1,58 @@
     <header>
         <h1>AzureConnect</h1>
         <nav>
-            <a class="menuitem">Profil</a>
-            <a class="menuitem">E-Mail</a>
-            <a class="menuitem">Kalender</a>
-            <a class="menuitem">Dokumente</a>
+            <a class="menuitem" href="#profile-section">Profil</a>
+            <a class="menuitem" href="#mail-section">E-Mail</a>
+            <a class="menuitem" href="#calendar-section">Kalender</a>
+            <a class="menuitem" href="#documents-section">Dokumente</a>
             <a class="button logout" href="/auth/signout">Abmelden</a>
         </nav>
     </header>
     <main>
         <article>
             <section class="grid-container">
-                <div class="profile">
+                <div class="profile" id="profile-section">
                     <div class="user">
-                        <h2>Profil</h2>
+                        <div class="headline-container">
+                            <i class='bx bxs-user'></i>
+                            <h2>Profil</h2>
+                        </div>
                         <div class="text">{{profile.displayName}}</div>
                         <div class="text">{{profile.mail}}</div>
-                        <div class="text">{{profile.jobTitle}}</div>
+                        <div class="text" style="text-transform: uppercase;">{{profile.jobTitle}}</div>
                     </div>
                     <div class="customize">
-                        <h2>Personalisieren</h2>
+                        <div class="headline-container">
+                            <i class='bx bxs-palette'></i>
+                            <h2>Personalisieren</h2>
+                        </div>
                         <div class="text">Farbschema auswählen</div>
                         <div class="color-schemes">
-                            <div class="colors1 color">
-                                <div class="color1"></div>
-                                <div class="color2"></div>
-                            </div>
-                            <div class="colors2 color"></div>
-                            <div class="colors3 color"></div>
-                            <div class="colors4 color"></div>
-                            <div class="colors5 color"></div>
+                            <div class="colors1 color" onclick="changeColor(1)"></div>
+                            <div class="colors2 color" onclick="changeColor(2)"></div>
+                            <div class="colors3 color" onclick="changeColor(3)"></div>
+                            <div class="colors4 color" onclick="changeColor(4)"></div>
+                            <div class="colors5 color" onclick="changeColor(5)"></div>
                         </div>
                         <div class="text">Schriftgröße wählen</div>
                         <div class="color-schemes">
-                            <div class="size1 color">S</div>
-                            <div class="size2 color">M</div>
-                            <div class="size3 color">L</div>
+                            <div class="size1 color" onclick="changeFontsize('s')"><i class='bx bx-font-size'></i></div>
+                            <div class="size2 color" onclick="changeFontsize('m')"><i class='bx bx-font-size'></i></div>
+                            <div class="size3 color" onclick="changeFontsize('l')"><i class='bx bx-font-size'></i></div>
                         </div>
                     </div>
                 </div>
-                <div class="mails">
+                <div class="mails" id="mail-section">
                     <div class="overview">
-                        <h2>Mails</h2>
+                        <div class="headline-container">
+                            <i class='bx bxs-envelope'></i>
+                            <h2>Mails</h2>
+                        </div>
+                        {{!// 
                         <a class="button">Alle</a>
                         <a class="button">Gesendet</a>
                         <a class="button">Erhalten</a>
+                        }}
                         <div class="maillist">
                             {{#each emails.value}}
                             <div>{{subject}} - {{from.emailAddress.name}}</div>
@@ -57,7 +65,7 @@
                         <div class="mailbody"></div>
                     </div>
                 </div>
-                <div class="calender">
+                <div class="calender" id="calendar-section">
                     <div class="datepicker">
                         <div class="datepicker-top">
                             <div class="month-selector">
@@ -114,7 +122,30 @@
                     </div>
                     <a class="button btn-create-appointment">Termin erstellen</a>
                 </div>
-                <div class="appointments"></div>
+                <div class="appointments">
+                 {{#if calendar}}
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Start</th>
+                            <th>End</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each calendar.value}}
+                            <tr>
+                            <td><a href="{{this.webLink}}">{{this.subject}}</a></td>
+                            <td>{{this.start.dateTime}}</td>
+                            <td>{{this.end.dateTime}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                    {{else}}
+                    <p>No events found.</p>
+                    {{/if}}
+                </div>
                 <div class="documents">
                 <div class="headline">
                     <h2>zuletzt verwendete Dokumente</h2>
