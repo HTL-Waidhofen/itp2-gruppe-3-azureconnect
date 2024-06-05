@@ -70,7 +70,7 @@ function getDateInformation(id){
     date.setDate(id);  
     document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
 
-    
+
     let returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-" + date.getDate();
 
     if(date.getMonth() < 10 && date.getDate() < 10){
@@ -90,6 +90,13 @@ const createAppointmentButton = document.querySelector('.btn-create-appointment'
 const appointmentsList = document.querySelector('.appointmentslist');
 
 let formExists = false; 
+
+function getDateEvents(date){
+    const calendar = require('./user.js');
+    
+    let eventsOnDate = calendar.getEvents(date);
+    console.log(eventsOnDate);
+}
 
 function addAppointment() {
     if (!formExists) {

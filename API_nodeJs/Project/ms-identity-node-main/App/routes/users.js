@@ -100,6 +100,7 @@ router.get('/dashboard',
             const profile = await profileResponse;
             const emails = await emailsResponse;
             const calendar = await calendarResponse;
+            module.exports = calendar;
             const documents = await documentResponse;
 
             console.log("Documents:", documents);
