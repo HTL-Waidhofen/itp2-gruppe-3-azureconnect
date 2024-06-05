@@ -45,7 +45,6 @@
     --highlight-color: #5e4975;
     --foreground-color: #eee;
     --background-color: #333;
-
     --medium-text-size: 20px;
     --small-text-size: 16px;
 }
@@ -78,7 +77,6 @@ header{
     width: 100%;
     background-color: rgba(0,0,0,0.8);
     backdrop-filter: blur(5px);
-
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -104,13 +102,14 @@ a{
     font-size: var(--small-text-size);
     padding: 0 10px 0 10px;
 }
+
 .menuitem:hover{
     color: var(--highlight-color);
+
 }
 .button{
     display: inline-block;
     text-align: center;
-
     color: var(--highlight-color);
     font-size: var(--small-text-size);
     width: 120px;
@@ -122,8 +121,6 @@ a{
     color: var(--foreground-color);
     background-color: var(--highlight-color);
     transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-
-    
     box-shadow: 
     0 0 2px rgba(255,255,255,0.1),
     0 0 4px rgba(255,255,255,0.1),
@@ -230,14 +227,6 @@ a{
 }
 
 
-
-
-
-
-
-
-
-
 .mails{
     background: linear-gradient(225deg, var(--background-color) 0%, rgba(40,40,45) 100%);
     display: flex;
@@ -287,6 +276,7 @@ a{
     height: 90%;
     width: 100%;
 }
+
 
 .documents{
     background-color: var(--background-color);
@@ -343,8 +333,6 @@ a{
     display: flex;
     flex-direction: column;
 }
-
-
 
 button {
     font: inherit;

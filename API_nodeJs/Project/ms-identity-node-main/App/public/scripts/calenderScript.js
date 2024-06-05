@@ -67,9 +67,23 @@ function getDateInformation(id){
             break;
         }
     }
-    date.setDate(id);
-    console.log(date);
+    date.setDate(id);  
     document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+
+    
+    let returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-" + date.getDate();
+
+    if(date.getMonth() < 10 && date.getDate() < 10){
+        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-0" + (date.getMonth()+1) + "-0" + date.getDate();
+    }
+    else if(date.getMonth() < 10){
+        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-0" + (date.getMonth()+1) + "-" + date.getDate();
+    }
+    else if(date.getDate() < 10){
+        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-0" + date.getDate();
+    }
+    
+    console.log(returnDate.toString());
 }
 const createAppointmentButton = document.querySelector('.btn-create-appointment');
 
@@ -84,6 +98,7 @@ function addAppointment() {
 
         const newAppointment = document.createElement('input');
         newAppointment.type = 'text';
+        newAppointment.name = 'appointmentText';
 
         const confirmButton = document.createElement('button');
         confirmButton.textContent = 'Bestätigen';
@@ -137,9 +152,9 @@ function addAppointment() {
 
             appointmentDiv.appendChild(editButton);
             appointmentDiv.appendChild(deleteButton);
-
             appointmentsList.appendChild(appointmentDiv);
         });
+        
     }
 }
 createAppointmentButton.addEventListener('click', addAppointment);
