@@ -89,20 +89,26 @@ router.get('/dashboard',
     isAuthenticated, // check if user is authenticated
     async function (req, res, next) {
         try {
-            const [profileResponse, emailsResponse, calendarResponse] = await Promise.all([
+            // Fetch profile and emails concurrently
+            const [profileResponse, emailsResponse , calendarResponse, documentResponse] = await Promise.all([
                 fetch(`https://graph.microsoft.com/v1.0/me/`, req.session.accessToken),
                 fetch(`https://graph.microsoft.com/v1.0/me/messages`, req.session.accessToken),
                 fetch(`https://graph.microsoft.com/v1.0/me/events`, req.session.accessToken),
+                fetch(`https://graph.microsoft.com/v1.0/me/drive/recent`, req.session.accessToken)
             ]);
 
             const profile = await profileResponse;
             const emails = await emailsResponse;
             const calendar = await calendarResponse;
+            const documents = await documentResponse;
+
+            console.log("Documents:", documents);
 
             res.render('dashboard', { 
                 profile,
                 emails,
                 calendar,
+                documents,
                 title: 'AzureConnect Dashboard'
             });
         } catch (error) {

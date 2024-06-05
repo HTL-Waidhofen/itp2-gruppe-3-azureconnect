@@ -18,6 +18,7 @@
   html {
       scrollbar-width: thin;
       scrollbar-color: var(--highlight-color) var(--text-color);
+      overflow-y: auto;
   }
 }
 
@@ -400,6 +401,7 @@ a{
   margin: 1% 1% 1% 1%;
   border-radius: 20px;
   flex-direction: column;
+  overflow-y: auto;
 }
 .headline{
   padding: 2%;
@@ -408,6 +410,7 @@ a{
   height: 100%;
   width: 100%;
   padding: 2%;
+  overflow-y: auto;
 }
 
 
