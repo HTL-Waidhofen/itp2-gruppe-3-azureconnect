@@ -14,4 +14,9 @@ router.get('/', function (req, res, next) {
     });
 });
 
+const hbs = require('hbs');
+hbs.registerHelper('json', function (context) {
+    return JSON.stringify(context);
+});
+
 module.exports = router;

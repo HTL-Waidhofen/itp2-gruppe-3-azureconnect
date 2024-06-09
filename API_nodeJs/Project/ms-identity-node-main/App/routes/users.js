@@ -100,8 +100,20 @@ router.get('/dashboard',
             const profile = await profileResponse;
             const emails = await emailsResponse;
             const calendar = await calendarResponse;
-            module.exports = calendar;
+            //module.exports = calendar;
             const documents = await documentResponse;
+
+            
+            /*
+            const eventsOnDate = filterEventsByDate(calendar, "2022-01-01"); //default, value to be set via user input - calendar
+            console.log("Events on 2022-01-01:", eventsOnDate);
+            function filterEventsByDate(calendar, date) {
+                return calendar.value.filter(event => {
+                    const eventStart = new Date(event.start.dateTime);
+                    return eventStart.toISOString().startsWith(date);
+                });
+            } 
+            */
 
             console.log("Documents:", documents);
 

@@ -1,6 +1,20 @@
+class Event{
+    constructor(starttime, endtime, date, subject){
+    this.start = starttime;
+    this.end = endtime;
+    this.date = date;
+    this.subject = subject;
+}}
+
 const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".arrow");
+
+const calendar = [];
+calendar.forEach(element => {
+    const event = new Event(element.starttime, element.endtime, element.date, element.description);
+    calendar.push(event);
+});
 
 // getting new date, current year and month
 let date = new Date(),
@@ -84,6 +98,7 @@ function getDateInformation(id){
     }
     
     console.log(returnDate.toString());
+    console.log(filterEventsByDate(calendar, returnDate.toString()));
 }
 const createAppointmentButton = document.querySelector('.btn-create-appointment');
 
@@ -91,12 +106,72 @@ const appointmentsList = document.querySelector('.appointmentslist');
 
 let formExists = false; 
 
+function filterEventsByDate(calendar, date) {
+    return calendar.value.filter(event => {
+        const eventStart = new Date(event.start.dateTime);
+        return eventStart.toISOString().startsWith(date);
+    });
+
+
+/* gedi-code, nach Angabe dieser Seite
+function filterEventsByDate(events, date) {
+    return events.filter(event => {
+        const eventStart = new Date(event.start.dateTime);
+        return eventStart.toISOString().startsWith(date);
+    });
+}
+
+async function getDateInformation(id) {
+    const accessToken = 'YOUR_ACCESS_TOKEN'; // Stellen Sie sicher, dass Sie hier das tatsächliche Token setzen
+    date.setFullYear(document.getElementById("current-date").innerText.split(" ")[1]);
+    let month = document.getElementById("current-date").innerText.split(" ")[0];
+    for (var i = 0; i < months.length; i++) {
+        if (month === months[i]) {
+            date.setMonth(i);
+            break;
+        }
+    }
+    date.setDate(id);
+    document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+
+    let returnDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+
+    try {
+        const events = await getEventsForDate(accessToken, returnDate);
+        console.log(events);
+        const filteredEvents = filterEventsByDate(events, returnDate);
+        console.log(filteredEvents);
+
+        // Hier können Sie die Termine auf der Webseite anzeigen
+        // Beispielsweise:
+        appointmentsList.innerHTML = ""; // Clear existing appointments
+        filteredEvents.forEach(event => {
+            const eventDiv = document.createElement('div');
+            eventDiv.textContent = `${event.subject} (${new Date(event.start.dateTime).toLocaleTimeString()} - ${new Date(event.end.dateTime).toLocaleTimeString()})`;
+            appointmentsList.appendChild(eventDiv);
+        });
+    } catch (error) {
+        console.error('Error fetching events:', error);
+    }
+}
+
+*/
+
+}
+/* globale Definition
 function getDateEvents(date){
-    const calendar = require('./user.js');
-    
-    let eventsOnDate = calendar.getEvents(date);
+    let eventsOnDate = getEventsForDate(date);
     console.log(eventsOnDate);
 }
+
+
+import getEventsForDate from './../routes/users.js';
+
+function getDateEvents(date){
+    let eventsOnDate = getEventsForDate(date);
+    console.log(eventsOnDate);
+}
+*/
 
 function addAppointment() {
     if (!formExists) {

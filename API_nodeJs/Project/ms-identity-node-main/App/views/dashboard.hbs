@@ -99,7 +99,7 @@
                             <th>End</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="displayAppointments">
                         {{#each calendar.value}}
                             <tr>
                             <td><a href="{{this.webLink}}">{{this.subject}}</a></td>
@@ -134,3 +134,7 @@
 
         </nav>
     </footer>
+
+    <script>
+        const calendar = {{json calendar}};
+    </script>
