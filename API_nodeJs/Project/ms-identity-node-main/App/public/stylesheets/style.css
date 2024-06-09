@@ -38,6 +38,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  color: var(--foreground-color);
 }
 
 /*   ICONS: https://boxicons.com/   */
@@ -335,7 +336,27 @@ a{
   width: 60%;
   padding: 2%;
   display: flex;
+  flex-direction: column;
 }
+.mails .mailtext .mailheader{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+.mails .mailtext .mailheader a{
+  font-size: var(--small-text-size);
+}
+.mails .hovericon{
+  font-size: 40px;
+  margin: 2%;
+  color: var(--foreground-color);
+}
+.mails .hovericon:hover{
+  color: var(--highlight-color);
+  transition: color 0.2s ease;
+}
+
 .maillist{
   border: 2px solid var(--highlight-color);
   height: 280px;
@@ -374,6 +395,7 @@ a{
   background: #64726e;
   border-radius: 20px;
 }
+
 
 
 
