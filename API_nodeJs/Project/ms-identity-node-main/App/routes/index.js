@@ -14,4 +14,13 @@ router.get('/', function (req, res, next) {
     });
 });
 
+
+const hbs = require('hbs');
+
+// Register a helper to stringify JSON
+hbs.registerHelper('json', function(context) {
+    return JSON.stringify(context);
+});
+
+
 module.exports = router;
