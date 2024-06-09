@@ -55,14 +55,13 @@
                         }}
                         <div class="maillist">
                             {{#each emails.value}}
-                            <div data-id="{{id}}" onclick="getMailBody(data-id)">{{subject}} - {{from.emailAddress.name}}</div>
+                            <div onclick="getEmailBody('{{id}}')">{{subject}} - {{from.emailAddress.name}}</div>
                             {{/each}}
                         </div>
                     </div>
                     <div class="mailtext">
-                        <div class="mailheader">
-                        </div>
-                        <div class="mailbody"></div>
+                        <div class="mailheader" id="mailheader"></div>
+                        <div class="mailbody" id="mailbody"></div>
                     </div>
                 </div>
                 <div class="calender" id="calendar-section">
@@ -102,7 +101,7 @@
                         <tbody>
                         {{#each calendar.value}}
                             <tr>
-                            <td><a href="{{this.webLink}}">{{this.subject}}</a></td>
+                            <td><a target="_blank" href="{{this.webLink}}">{{this.subject}}</a></td>
                             <td>{{this.start.dateTime}}</td>
                             <td>{{this.end.dateTime}}</td>
                             </tr>
@@ -132,3 +131,7 @@
 
         </nav>
     </footer>
+
+    <script>
+        const emails = {{{json emails}}};
+    </script>
