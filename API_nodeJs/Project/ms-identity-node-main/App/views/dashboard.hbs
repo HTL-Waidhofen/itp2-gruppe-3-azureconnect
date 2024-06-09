@@ -133,31 +133,30 @@
             </section>
              <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const emailEntries = document.querySelectorAll('.email-entry');
-            const mailText = document.querySelector('.mailtext');
+    const emailEntries = document.querySelectorAll('.email-entry');
+    const mailText = document.querySelector('.mailtext');
 
-           
-            emailEntries.forEach(function(emailEntry) {
-                emailEntry.addEventListener('click', function() {
-                    const emailId = this.dataset.emailId;
-                    fetch(`/emails/${emailId}`)
-                        .then(response => response.json())
-                        .then(email => {
-                            mailText.innerHTML = `
-                                <div class="mailheader">
-                                    <h2>Mail-Header</h2>
-                                    <div>${email.subject} - ${email.from.emailAddress.name}</div>
-                                </div>
-                                <div class="mailbody">
-                                    <h2>Mail-Body</h2>
-                                    <div>${email.body}</div>
-                                </div>
-                            `;
-                        })
-                        .catch(error => console.error('Error fetching email:', error));
-                });
-            });
+    emailEntries.forEach(function(emailEntry) {
+        emailEntry.addEventListener('click', function() {
+            const emailId = this.dataset.emailId;
+            fetch(`/users/me/messages/${emailId}`)
+                .then(response => response.json())
+                .then(email => {
+                    mailText.innerHTML = `
+                        <div class="mailheader">
+                            <h2>Mail-Header</h2>
+                            <div>${email.subject} - ${email.from.emailAddress.name}</div>
+                        </div>
+                        <div class="mailbody">
+                            <h2>Mail-Body</h2>
+                            <div>${email.body.content}</div>
+                        </div>
+                    `;
+                })
+                .catch(error => console.error('Error fetching email:', error));
         });
+    });
+});
     </script>
         </article>
     </main>

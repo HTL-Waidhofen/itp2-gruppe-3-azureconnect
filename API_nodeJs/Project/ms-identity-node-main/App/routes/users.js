@@ -86,6 +86,15 @@ router.get('/dashboard',
         }
     }
 );
+router.get('/me/messages/:id', isAuthenticated, async function (req, res, next) {
+    try {
+        const emailId = req.params.id;
+        const emailResponse = await fetch(`https://graph.microsoft.com/v1.0/me/messages/${emailId}`, req.session.accessToken);
+        res.json(emailResponse);
+    } catch (error) {
+        next(error);
+    }
+});
 
 
 module.exports = router;
