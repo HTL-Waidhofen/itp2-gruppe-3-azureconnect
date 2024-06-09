@@ -336,21 +336,21 @@ a{
   padding: 2%;
   display: flex;
 }
-.mails .maillist{
+.maillist{
   border: 2px solid var(--highlight-color);
   height: 280px;
   margin: 3% 1% 1% 0;
   overflow-y: auto;
   border-radius: 8px;
 }
-.mails .maillist > div{
+.maillist div{
   margin: 0 0 1% 0;
   font-size: var(--small-text-size);
   color: var(--foreground-color);
   padding: 2%;
   background-color: var(--background-color);
 }
-.mails .maillist > div:hover{
+.maillist div:hover{
   background-color: var(--foreground-color);
   color: var(--background-color);
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -402,9 +402,7 @@ a{
   border-radius: 20px;
   flex-direction: column;
   overflow-y: auto;
-}
-.headline{
-  padding: 2%;
+  padding: 4%;
 }
 .documentlist{
   height: 100%;
@@ -547,4 +545,148 @@ i{
   color: var(--foreground-color);
   font-size: var(--medium-text-size);
   margin-right: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+}
+
+
+
+
+.calender{
+  background-color: var(--background-color);
+  justify-content: center;
+  align-items: center;
+  margin: 0% 1% 1% 2%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+--c-theme-primary: #008FFD;
+--c-theme-primary-accent: #CBE8FF;
+--c-bg-primary: #D6DAE0;
+--c-bg-secondary: #EAEBEC;
+--c-bg-tertiary: #FDFDFD;
+--c-text-primary: #1F1F25;
+--c-text-secondary: #999FA6;
+}
+
+.calender{
+  background-color: var(--background-color);
+  justify-content: center;
+  align-items: center;
+  margin: 0% 1% 1% 2%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  &:focus {
+      outline: 0;
+  }
+}
+
+.datepicker {
+width: 90%;
+  height: 70%;
+background-color: var(--c-bg-tertiary);
+border-radius: 10px;
+box-shadow: 0 0 2px 0 rgba(#000, .2), 0 5px 10px 0 rgba(#000, .1);
+padding: 1rem;
+}
+
+.datepicker .datepicker-header {
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.datepicker .datepicker-header header .icons{
+  display: flex;
+}
+
+.datepicker .datepicker-header .icons span{
+height: 38px;
+width: 38px;
+margin: 0 1px;
+cursor: pointer;
+color: #878787;
+text-align: center;
+line-height: 38px;
+font-size: 1.9rem;
+user-select: none;
+border-radius: 50%;
+}
+.icons button:last-child{
+margin-right: -10px;
+}
+.datepicker .datepicker-header .icons button:hover{
+background: #f2f2f2;
+}
+.datepicker .datepicker-header .current-date{
+font-size: 1.45rem;
+font-weight: 500;
+}
+.calendar-month{
+  padding: 20px;
+}
+.calendar-month ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar-month .days{
+  margin-bottom: 20px;
+}
+.calendar-month li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar-month .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar-month .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+color: #aaa;
+}
+.days li.active{
+color: #fff;
+}
+.days li::before{
+position: absolute;
+content: "";
+left: 50%;
+top: 50%;
+height: 40px;
+width: 40px;
+z-index: -1;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+}
+.days li.active::before{
+background: #9B59B6;
+}
+.days li:not(.active):hover::before{
+background: #f2f2f2;
 }

@@ -104,6 +104,8 @@ router.get('/dashboard',
 
             console.log("Documents:", documents);
 
+            documents.value = documents.value.slice(0, 20); //only show the last 20 documents
+
             res.render('dashboard', { 
                 profile,
                 emails,

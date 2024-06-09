@@ -55,7 +55,7 @@
                         }}
                         <div class="maillist">
                             {{#each emails.value}}
-                            <div>{{subject}} - {{from.emailAddress.name}}</div>
+                            <div data-id="{{id}}" onclick="getMailBody(data-id)">{{subject}} - {{from.emailAddress.name}}</div>
                             {{/each}}
                         </div>
                     </div>
@@ -114,15 +114,13 @@
                     {{/if}}
                 </div>
                 <div class="documents">
-                <div class="headline">
+                <div class="headline-container headline">
+                    <i class='bx bxs-file-blank' ></i>
                     <h2>zuletzt verwendete Dokumente</h2>
                 </div>
-                <div class="documentlist">
+                <div class="maillist">
                     {{#each documents.value}}
-                    <div class="document">
-                    <i class='bx bxs-file-pdf'></i>
-                    <li>{{name}}</li>
-                    </div>
+                        <a href="{{this.remoteItem.webDavUrl}}" target="_blank"><div><i class='bx bx-file-blank'></i>{{name}}</div></a>
                     {{/each}}
                 </div>
                 </div>
