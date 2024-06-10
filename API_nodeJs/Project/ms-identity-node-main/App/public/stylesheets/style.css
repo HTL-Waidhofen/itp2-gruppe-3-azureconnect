@@ -292,17 +292,20 @@ a{
   background: linear-gradient(135deg, #223 0%, #223 50%, #eee 50%, #eee 100%);
 }
 .profile .customize .colors2{
-  background: linear-gradient(135deg, #eee 0%, #eee 50%, #223 50%, #223 100%);
+  background: linear-gradient(135deg, #3D5A5B 0%, #3D5A5B 50%, #eee 50%, #eee 100%);
 }
 .profile .customize .colors3{
-  background: linear-gradient(135deg, #232 0%, #232 50%, #efe 50%, #efe 100%);
+  background: linear-gradient(135deg, #9F496E 0%, #9F496E 50%, #eee 50%, #eee 100%);
 }
 .profile .customize .colors4{
-  background: linear-gradient(135deg, #efe 0%, #efe 50%, #232 50%, #232 100%);
+  background: linear-gradient(135deg, #E0475B 0%, #E0475B 50%, #eee 50%, #eee 100%);
 }
 .profile .customize .colors5{
-  background: linear-gradient(135deg, #422 0%, #422 50%, #f99 50%, #f99 100%);
+  background: linear-gradient(135deg, #6184C6 0%, #6184C6 50%, #FCD752 50%, #FCD752 100%);
 }
+
+
+
 
 .profile .customize .size1 i{
   font-size: 14px;
