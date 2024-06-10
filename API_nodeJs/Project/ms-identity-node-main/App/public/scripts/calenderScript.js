@@ -21,16 +21,48 @@ const renderCalendar = () => {
     lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
     lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
     let liTag = "";
+    let match = "";
+    
+
+
 
     for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
         liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
     }
 
-    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
-        // adding active class to li if the current day, month, and year matched
+    for (let i = 1; i <= lastDateofMonth; i++) {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li onclick="getDateInformation(id)" id="${i}" class="${isToday}">${i}</li>`;
+
+        console.log("---------");
+        calendar.forEach(c => {
+            let printedDate = `${currYear}-`;
+            let appoiDate = c.start.dateTime.substring(0,10);
+            console.log(appoiDate);
+
+            if(currMonth.toString().length == 1)
+                printedDate += "0" + (parseInt(currMonth) + 1).toString();
+            else{
+                printedDate += (parseInt(currMonth) + 1).toString();
+            }
+            printedDate += "-";
+            if(i.toString().length == 1){
+                printedDate += "0" + i;
+            }
+            else{
+                printedDate += i;
+            }
+
+            console.log("printDate: " + printedDate);
+
+                if(appoiDate == printedDate){
+                    match = "match";
+                    console.log(match);
+                }
+        });
+       
+        liTag += `<li onclick="getDateInformation(id)" id="${i}" class="${isToday} ${match}">${i}</li>`;
+        match = "";
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
