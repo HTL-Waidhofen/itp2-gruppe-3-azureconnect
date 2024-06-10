@@ -1,3 +1,5 @@
+console.log(calendar);
+
 const daysTag = document.querySelector(".days"),
 currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".arrow");
@@ -58,33 +60,8 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
     });
 });
 
-function getDateInformation(id){
-    date.setFullYear(document.getElementById("current-date").innerText.split(" ")[1]);
-    let month = document.getElementById("current-date").innerText.split(" ")[0];
-    for(var i = 1; i <= months.length; i++){
-        if(month == months[i]){
-            date.setMonth(i);
-            break;
-        }
-    }
-    date.setDate(id);  
-    document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
 
-    
-    let returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-" + date.getDate();
-
-    if(date.getMonth() < 10 && date.getDate() < 10){
-        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-0" + (date.getMonth()+1) + "-0" + date.getDate();
-    }
-    else if(date.getMonth() < 10){
-        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-0" + (date.getMonth()+1) + "-" + date.getDate();
-    }
-    else if(date.getDate() < 10){
-        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-0" + date.getDate();
-    }
-    
-    console.log(returnDate.toString());
-}
+/*
 const createAppointmentButton = document.querySelector('.btn-create-appointment');
 
 const appointmentsList = document.querySelector('.appointmentslist');
@@ -158,3 +135,62 @@ function addAppointment() {
     }
 }
 createAppointmentButton.addEventListener('click', addAppointment);
+
+*/
+
+
+
+
+function getDateInformation(id){
+    date.setFullYear(document.getElementById("current-date").innerText.split(" ")[1]);
+    let month = document.getElementById("current-date").innerText.split(" ")[0];
+    for(var i = 1; i <= months.length; i++){
+        if(month == months[i]){
+            date.setMonth(i);
+            break;
+        }
+    }
+    date.setDate(id);  
+    document.getElementById("header_selDate").innerHTML = "Termine am " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear();
+
+    
+    let returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-" + date.getDate();
+
+    if(date.getMonth() < 10 && date.getDate() < 10){
+        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-0" + (date.getMonth()+1) + "-0" + date.getDate();
+    }
+    else if(date.getMonth() < 10){
+        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-0" + (date.getMonth()+1) + "-" + date.getDate();
+    }
+    else if(date.getDate() < 10){
+        returnDate = (document.getElementById("current-date").innerText.split(" ")[1]) + "-" + (date.getMonth()+1) + "-0" + date.getDate();
+    }
+    
+    let foundMatch = false;
+
+    calendar.forEach(c => {
+        let appDate = c.start.dateTime;
+
+        if (appDate.substring(0, 10) === returnDate.toString()) {
+            document.getElementById('appointmentlist').innerHTML = `
+                <div>
+                    <h3 class="inline">Betreff</h3>
+                    <div class="inline">${c.subject}</div>
+                </div>
+                <div>
+                    <h3 class="inline">Von</h3>
+                    <div class="inline">${appDate.substring(11, 16)}</div>
+                </div>
+                <div>
+                    <h3 class="inline">Bis</h3>
+                    <div class="inline">${c.end.dateTime.substring(11, 16)}</div>
+                </div>
+            `;
+            foundMatch = true;
+            return;
+        }
+    });
+    if (!foundMatch) {
+        document.getElementById('appointmentlist').innerHTML = "";
+    }
+}

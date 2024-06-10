@@ -148,6 +148,9 @@ h2{
   0 0 2px rgba(255,255,255,0.1),
   0 0 4px rgba(255,255,255,0.1);
 }
+h3{
+  width: 100px;
+}
 .text{
   font-size: var(--medium-text-size);
   color: var(--foreground-color);
@@ -410,6 +413,8 @@ a{
   justify-content: left;
   margin: 0 1% 1% 1%;
   border-radius: 20px;
+  padding: 4%;
+  flex-direction: column;
 }
 
 
@@ -661,6 +666,10 @@ background: #f2f2f2;
 .datepicker .datepicker-header .current-date{
 font-size: 1.45rem;
 font-weight: 500;
+color: #222;
+}
+.calender i{
+  color: #222;
 }
 .calendar-month{
   padding: 20px;
@@ -711,4 +720,13 @@ background: #9B59B6;
 }
 .days li:not(.active):hover::before{
 background: #f2f2f2;
+}
+
+.inline{
+  display: inline-block;
+  margin-right: 4%;
+}
+
+.appointmentslist{
+  margin-top: 2%;
 }

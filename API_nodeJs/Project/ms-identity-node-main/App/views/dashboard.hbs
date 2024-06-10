@@ -88,8 +88,8 @@
                 </div>
                 <div class="appointments">
                     <h2 id="header_selDate"></h2>
-                    <div class="appointmentslist"></div>
-                 {{#if calendar}}
+                    <div class="appointmentslist" id="appointmentlist"></div>
+                 {{!-- {{#if calendar}}
                     <table>
                         <thead>
                         <tr>
@@ -110,7 +110,7 @@
                     </table>
                     {{else}}
                     <p>No events found.</p>
-                    {{/if}}
+                    {{/if}} --}}
                 </div>
                 <div class="documents">
                 <div class="headline-container headline">
@@ -134,4 +134,5 @@
 
     <script>
         const emails = {{{json emails}}};
+        const calendar = {{{json calendar.value}}};
     </script>
